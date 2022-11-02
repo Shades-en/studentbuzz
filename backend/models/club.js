@@ -15,19 +15,20 @@ const ClubSchema = new Schema({
     members: [{
         _id: {type: Schema.Types.ObjectId, ref: 'Student'},
         points: {type: Number, default: 0},
-        current_member: {type: Boolean, default: true},
-        default: []
-    }],
+        current_member: {type: Boolean, default: true}},
+        {default: []}
+    ],
     university: {type: Schema.Types.ObjectId, ref: 'University'},
     followers: [{type: Schema.Types.ObjectId, ref: 'Student', default: []}],
     events: [{
+        id: {type: Schema.Types.ObjectId},
         name: String,
         description: String,
         image: Buffer,
     }, {default: []}],
     tasks: [{
         description: String,
-        id: {type:ObjectIdSchema, auto: true },
+        id: {type: Schema.Types.ObjectId, auto: true },
         assigned_to: {type: Schema.Types.ObjectId, ref: 'Student'},
         status: {
             type: String,

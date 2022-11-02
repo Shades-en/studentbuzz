@@ -13,7 +13,6 @@ const facultySchema = new Schema({
     },
     projects: [{
         type: String,
-        default: ''
     }],
     type: {
         type: String,
@@ -30,9 +29,9 @@ const facultySchema = new Schema({
         read: {
             type: Boolean,
             default: false
-        },
-        default: []
-    }]
+        }},
+        {default: []}
+    ]
 })
 
 module.exports = mongoose.model('Faculty', facultySchema);

@@ -14,31 +14,28 @@ const StudentSchema = new Schema({
     },
     skills: [{
         type: String,
-        default: ''
     }],
     projects: [{
         type: String,
-        default: ''
     }],
     clubs: [{type: Schema.Types.ObjectId, ref: 'Club', default: []}],   
     admin_clubs: [{type: Schema.Types.ObjectId, ref: 'Club', default: []}],
     clubs_following: [{type: Schema.Types.ObjectId, ref: 'Club', default: []}],
     class: {type: Schema.Types.ObjectId, ref: 'Class', default: null},
     notifications: [{
-        sent:{
+        sent:[{
             to: {type: Schema.Types.ObjectId, ref: 'Student'},
             content: String,
             read: {type: Boolean, default: false},
             timestamp: {type: Date, default: Date.now()},
-            default: []
-        },
-        received: {
+        }],
+        received: [{
             from: {type: Schema.Types.ObjectId, ref: 'Student'},
             content: String,
             read: {type: Boolean, default: false},
             timestamp: {type: Date, default: Date.now()},
             default: []
-        }
+        }]
     }]
 })
 

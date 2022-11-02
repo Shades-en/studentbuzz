@@ -39,14 +39,15 @@ router.post('/create-post', uploadPost.single('post'), async (req, res) => {
             category: "hod",
         })
         fs.unlinkSync(`${process.cwd()}/uploads/posts/${req.file.filename}`)
+
+        res.status(200).json({
+            msg: 'post created',
+            post: post
+        })
     } catch(error) {
         res.status(400).json({error: error.message})
         return
     }
-    // console.log(req.body)
-    res.json({
-        msg: 'post created'
-    })
 })
 
 router.delete('/delete-post/:pid', (req, res) => {

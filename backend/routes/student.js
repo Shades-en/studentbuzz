@@ -1,5 +1,9 @@
 const express = require('express')
 const {getCurrentStudent} = require('../middleware/auth')
+const Student = require('../models/student')
+const University = require('../models/university')
+const Club = require('../models/club')
+const { uploadEvent } = require('../middleware/upload')
 
 const router = express.Router()
 
@@ -123,10 +127,50 @@ router.get('/getTasks', (req, res) => {
     })
 })
 
-router.post('/create-club', (req, res) => {
+router.post('/create-club', async (req, res) => {
+    try{
+        const uni = await University.findOne({name: "MSRIT"})
+        const students = await Student.find({university: uni._id})
+        const club = await Club.create({
+            name: "GDSC",
+            description: "Google Developer Student Club",
+            admin: students[0]._id,
+            members: [{
+                _id: students[0]._id,
+            },{
+                _id: students[1]._id,
+            }],
+            university: uni._id,
+            followers: students.map(s => s._id),
+            events: [],
+            tasks: [],
+        })
+
+        res.json({
+            msg: 'club created',
+            club
+        })
+    }
+    catch(err){
+        res.status(500).json({
+            msg: err.message
+        })
+        return
+    }
+    // console.log(req.body)
+})
+
+router.post('/add-event', uploadEvent.single('event'), (req, res) => {
     console.log(req.body)
     res.json({
-        msg: 'club created'
+        msg: 'event added'
+    })
+})
+
+router.delete('/delete-event/:eid', (req, res) => {
+    console.log(req.params)
+    res.json({
+        msg: 'event deleted'
     })
 })
 

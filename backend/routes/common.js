@@ -8,6 +8,7 @@ const {uploadTranscript} = require('../middleware/upload')
 const fs = require('fs')
 const student = require('../models/student')
 const Class = require('../models/class')
+const Club = require('../models/club')
 
 const router = express.Router()
 
@@ -35,12 +36,12 @@ router.post('/create-student', async (req, res) => {
     student: student})
 })
 
-router.post('/create-uni', uploadTranscript.single('image'), (req, res) => {
+router.post('/create-uni', uploadTranscript.single('transcript'), (req, res) => {
     // console.log(req.file.filename)
     try{
         const uni = University.create({
-            name: "MSRIT",
-            uuid: "1234",
+            name: "Reva",
+            uuid: "1235",
             location: "Bangalore",
             transcript: {
                 data: fs.readFileSync(`${process.cwd()}/uploads/transcripts/${req.file.filename}`),
@@ -71,6 +72,12 @@ router.get('/getStud', async (req, res) => {
     res.json({msg: 'Students fetched',
     classStud})
     // studUni = student.university.
+})
+
+router.get('/getstudclub', async (req, res) => {
+    const studClub = await Club.findOne({name: "GDSC"}).populate('members._id')
+    res.json({msg: 'Students fetched',
+    studClub})
 })
 
 router.post('/testFile', uploadTranscript.single('image'), async (req, res) => {
