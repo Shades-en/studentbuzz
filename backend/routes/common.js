@@ -1,17 +1,56 @@
 const express = require('express')
-const Parent = require('../models/parent')
-const Child = require('../models/child')
-const child = require('../models/child')
+// const Parent = require('../models/parent')
+// const Child = require('../models/child')
+const Image = require('../models/image')
+const University = require('../models/university')
+const Student = require('../models/student')
+const {uploadTranscript} = require('../middleware/upload')
+const fs = require('fs')
+const student = require('../models/student')
+const Class = require('../models/class')
 
 const router = express.Router()
 
-router.post('/create-student', (req, res) => {
-    console.log(req.body)
-    res.json({msg: 'student created'})
+router.post('/create-student', async (req, res) => {
+    try{
+        const uni = await University.findOne({name: "MSRIT"})
+        console.log(uni._id)
+
+        const student = await Student.create({
+            uuid: "124",
+            usn: "124",
+            name: "Umraz",
+            email: "umraz@gmail.com",
+            university: uni._id,
+            department: "CSE",
+        })
+    }
+    catch(error){
+        console.log(error)
+        res.status(400).json({error: error.message})
+        return
+    }
+    // console.log(req.body)
+    res.json({msg: 'student created',
+    student: student})
 })
 
-router.post('/create-uni', (req, res) => {
-    console.log(req.body)
+router.post('/create-uni', uploadTranscript.single('image'), (req, res) => {
+    // console.log(req.file.filename)
+    try{
+        const uni = University.create({
+            name: "MSRIT",
+            uuid: "1234",
+            location: "Bangalore",
+            transcript: {
+                data: fs.readFileSync(`${process.cwd()}/uploads/transcripts/${req.file.filename}`),
+                file_name: req.file.filename
+            }
+        })
+    } catch(error) {
+        res.status(400).json({error: error.message})
+    }
+    // console.log(req.body)
     res.json({msg: 'University created'})
 })
 
@@ -19,6 +58,56 @@ router.post('/create-uni', (req, res) => {
 
 
 //dummy tests
+
+router.get('/getUni', async (req, res) => {
+    const studentUni = await Student.findOne({name: "Owais"}).populate('university')
+    res.json({msg: 'University fetched',
+    studentUni: studentUni})
+    // studUni = student.university.
+})
+
+router.get('/getStud', async (req, res) => {
+    const classStud = await Class.findOne({name: "CSE 1"}).populate('students').populate('university')
+    res.json({msg: 'Students fetched',
+    classStud})
+    // studUni = student.university.
+})
+
+router.post('/testFile', uploadTranscript.single('image'), async (req, res) => {
+    // console.log(req.file.filename)
+    var imgData = {
+        name: req.file.filename,
+        desc: "testImage",
+        img: {
+            data: fs.readFileSync(`${process.cwd()}/uploads/transcripts/${req.file.filename}`, {encoding: 'base64'}),
+            contentType: 'image/jpeg'
+        }
+    }
+    // console.log(imgData.img.data)
+    // console.log(imgData)
+    var mongoOB = await Image.create(imgData, (err, item) => {
+        if (err) {
+            console.log(err);
+        }
+        else{
+            // console.log(item)
+            fs.unlinkSync(`${process.cwd()}/uploads/transcripts/${req.file.filename}`)
+            res.json({msg: 'image saved',
+            mongoOB: item})
+        }
+    });
+    
+})
+
+router.get('/testFile', async (req, res) => {
+    // var img = await Image.findOne()
+    var uni = await University.findOne()
+    // console.log(uni.transcript.data)
+    // fs.writeFileSync(`${process.cwd()}/uploads/transcripts/test.png`, img.img.data, {encoding: 'base64'});
+    fs.writeFileSync(`${process.cwd()}/uploads/transcripts/test.png`, uni.transcript.data);
+    res.json({uni})
+})
+
 router.get('/test1', async (req, res) => {
     const parent1 = await Parent.create({
         name: 'parent1'
@@ -76,8 +165,10 @@ router.get('/test2', async (req, res) => {
 })
 
 router.delete('/', async (req, res) => {
-    await Parent.deleteMany()
-    await Child.deleteMany()
+    await Student.deleteMany()
+    // await Parent.deleteMany()
+    // await Child.deleteMany()
+    await Image.deleteMany()
     res.json({msg: 'deleted'})
 })
 

@@ -1,18 +1,18 @@
-const authStudent = async (req, res, next) => {
+const getCurrentStudent = async (req, res, next) => {
     console.log('student authenticated')
     //check details of header
     //req.user  = {}
     next()
 }
 
-const authUni = async (req, res, next) => {
+const getCurrentUni = async (req, res, next) => {
     console.log('University authenticated')
     //check details of header
     //req.user  = {}
     next()
 }
 
-const authFaculty = async (req, res, next) => {
+const getCurrentFaculty = async (req, res, next) => {
     console.log('faculty authenticated')
     //check details of header
     //req.user  = {}
@@ -20,7 +20,7 @@ const authFaculty = async (req, res, next) => {
 }
 
 module.exports = {
-    authStudent,
-    authUni,
-    authFaculty
+    getCurrentStudent,
+    getCurrentUni,
+    getCurrentFaculty
 }

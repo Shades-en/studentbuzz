@@ -1,9 +1,9 @@
 const express = require('express')
-const {authStudent} = require('../middleware/auth')
+const {getCurrentStudent} = require('../middleware/auth')
 
 const router = express.Router()
 
-router.use(authStudent)
+router.use(getCurrentStudent)
 
 //posts
 router.get('/posts', (req, res) => {

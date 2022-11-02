@@ -1,14 +1,31 @@
 const express = require('express')
-const {authUni} = require('../middleware/auth')
+const { getCurrentUni } = require('../middleware/auth')
+const Faculty = require('../models/faculty')
+const University = require('../models/university')
+
 
 const router = express.Router()
 
-router.use(authUni)
+router.use(getCurrentUni)
 
 
 //faculty
-router.post('/create-faculty', (req, res) => {
-    console.log(req.body)
+router.post('/create-faculty', async (req, res) => {
+    // console.log(req.body)
+    try{
+        const uni = await University.findOne({name: "MSRIT"})
+        const faculty = await Faculty.create({
+            uuid: "123",
+            name: "Lincy",
+            email: "lincy@gmail.com",
+            university: uni._id,
+            department: "CSE",
+            type: "hod"
+        })
+    } catch(error) {
+        res.status(400).json({error: error.message})
+        return
+    }
     res.json({msg: 'faculty created'})
 })
 

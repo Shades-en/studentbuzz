@@ -12,10 +12,11 @@ const UniversitySchema =  new Schema({
     achievements: [{
         type: String,
     }, {default: []}],
-    students: [{type: Schema.Types.ObjectId, ref: 'Student', default: []}],
+    students: [{type: String, default: []}],
     deparments: [{type: String, default: []}],
     transcript: {
-        type: Buffer,
+        data: {type: Buffer, default: null},
+        file_name: {type: String, default: null}
     },
     latestNews: [{
         type: String,
