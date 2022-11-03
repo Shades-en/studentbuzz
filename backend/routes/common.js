@@ -42,6 +42,7 @@ router.post('/create-uni', uploadTranscript.single('transcript'), (req, res) => 
         const uni = University.create({
             name: "Reva",
             uuid: "1235",
+            email: "msrit@msrit.edu",
             location: "Bangalore",
             transcript: {
                 data: fs.readFileSync(`${process.cwd()}/uploads/transcripts/${req.file.filename}`),

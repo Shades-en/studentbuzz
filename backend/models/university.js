@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 const UniversitySchema =  new Schema({
     name: String,
     uuid: String,
+    email: String,
     location: String,
     description: {
         type: String,
