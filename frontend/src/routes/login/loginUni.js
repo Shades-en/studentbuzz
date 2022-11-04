@@ -1,9 +1,9 @@
+import Login from '../../components/login/loginFaculty.component'; 
+
 const LoginUni = () => {
     return (  
         <>
-            <div>
-                <h1>login Uni</h1>
-            </div>
+            <Login type={{uni: true}} />
         </>
     );
 }

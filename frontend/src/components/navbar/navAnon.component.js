@@ -1,69 +1,30 @@
 import { Outlet } from "react-router-dom";
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import SchoolSharpIcon from "@mui/icons-material/SchoolSharp";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { NavbarContainer, NavbarContent, NavbarLink, NavbarLogo, Button } from "./navigation.styles";
+import SchoolIcon from '@mui/icons-material/School';
 
-const theme = createTheme()
-theme.typography.h5 = {
-    fontSize: '1.4rem',
-    fontWeight: 700,
-    color: '#ee1d52'
-}
-
-theme.components = {
-    MuiButton: {
-        styleOverrides: {
-            root: {
-                // Some CSS
-                fontSize: '0.9rem',
-                fontWeight: 400,
-                color: '#ee1d52'
-            },
-        },
-    }
-}
-
-theme.palette.primary.main = '#fff';
-theme.palette.secondary.main = '#ee1d52';
+import './navigation.styles';
 
 const Navbar = () => {
-    return (  
-        <>
-            <ThemeProvider theme={theme}>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="absolute" color="primary">
-                    <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="secondary"
-                        aria-label="menu"
-                    >
-                        <SchoolSharpIcon />
-                    </IconButton>
-                    
-                    <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                        studentBuzZ
-                    </Typography>
 
-                    <Button href="/" color="inherit">Student Login</Button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <Button color="inherit" href="/login-faculty">Faculty Login</Button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <Button color="inherit" href="/sign-up-uni">Join Us</Button>
-                    </Toolbar>
-                </AppBar>
-            </Box>
-            </ThemeProvider>
+    return (
+        <>
+            <NavbarContainer>
+                <NavbarLogo to='/' className="flex justify-around items-center w-52">
+                    <SchoolIcon fontSize="large" />
+                    <div>
+                        student<span className="text-indigo-500">B</span>uzZ
+                    </div>
+                    
+                </NavbarLogo>
+                <NavbarContent className="w-96">
+                    <NavbarLink to='/'>Home</NavbarLink>
+                    <NavbarLink to='login-faculty'>Faculty Login</NavbarLink>
+                    <Button to='sign-up-uni' >Join as University</Button>
+                </NavbarContent>
+            </NavbarContainer>
             <Outlet />
         </>
     );
-}
- 
+};
+
 export default Navbar;
