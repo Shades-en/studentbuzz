@@ -10,7 +10,7 @@ const Navbar = () => {
         <>
             <NavbarContainer>
                 <NavbarLogo to='/' className="flex justify-around items-center w-52">
-                    <SchoolIcon fontSize="large"/>
+                    <SchoolIcon fontSize="large" />
                     <div>
                         student<span className="text-indigo-500">B</span>uzZ
                     </div>

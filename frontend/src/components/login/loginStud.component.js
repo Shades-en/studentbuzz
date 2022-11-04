@@ -1,4 +1,6 @@
-const SignIn = () => {
+import { Link } from 'react-router-dom'
+
+const Login = () => {
   return (  
     <>   
       <div className="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
@@ -36,6 +38,10 @@ const SignIn = () => {
                                 <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">LOGIN</button>
                             </div>
                         </div>
+                        <div className="mt-4 flex w-full justify-around">
+                            <Link to="/login-uni" className="cursor-pointer text-indigo-600 hover:text-indigo-500 ">University Login</Link>
+                            <Link to="/login-faculty" className="cursor-pointer text-indigo-600 hover:text-indigo-500 ">Faculty Login</Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,4 +51,4 @@ const SignIn = () => {
   );
 }
  
-export default SignIn;
+export default Login;

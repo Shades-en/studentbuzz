@@ -53,7 +53,7 @@ export const Button = styled(Link)`
     border: 1px solid #6366f1;
     border-radius: 5px;
     background-color: white;
-    color: #6366f1;
+    color: black;
     padding: 3px 24px;
     cursor: pointer;
     
