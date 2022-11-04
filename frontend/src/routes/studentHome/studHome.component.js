@@ -46,7 +46,7 @@ export default function RecipeReviewCard() {
         </div>
     </div>
     
-    
+    <Outlet />
     </>
   );
 }
