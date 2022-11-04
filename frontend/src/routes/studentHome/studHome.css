@@ -1,23 +1,104 @@
 .student_home{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
-.profile_container{
-    min-width: 30%;
-    background-color: #69c9d0;
+.navbar_left{
+    min-width: 20%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.menu{
+    position: fixed;
+    top: 6em;
+    width: 15em;
 }
 
 .cards_container{
-    min-width: 70%;
+    min-width: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #fffafa;
+}
+
+.connect_right{
+    min-width: 25%;
+    min-height: 100vh;
+    background-color:  #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.connect_right > p{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #6366f1;
+    align-self: flex-start;
+    padding-left: 1.5em;
+    margin-top: 1em;
+    position: relative;
+    top: 4em;
 }
 
 .each_card{
     margin-top: 2em;
     margin-bottom: 2em;
+}
+
+/* .css-35zqo5-MuiTabs-root{
+    height: 100%;
+} */
+
+/* searchbar color */
+.fpTHfu {
+    background-color: #e5e7eb!important;
+}
+
+/* connect menu */
+.css-1mcnwpj-MuiList-root {
+    width: 17em!important;
+    position: relative;
+    margin-top: 1em;
+    position: relative;
+    top: 6em;
+}
+
+/* space between posts */
+.css-1ri6ub7-MuiPaper-root-MuiCard-root {
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+
+/* search bar text */
+.lkTtqM{
+    text-align: center;
+}
+
+/* search bar */
+.fpTHfu{
+    z-index: -1!important;
+}
+
+/* posts */
+.css-1ri6ub7-MuiPaper-root-MuiCard-root{
+    margin-top: 6em;
+}
+
+/* search bar */
+.css-96uuyl{
+    position: relative;
+    right: 31em;
+    border: 0.5px solid black;
+}
+
+/* navbar right side */
+.sc-dkrFOg{
+    width: auto;
 }
