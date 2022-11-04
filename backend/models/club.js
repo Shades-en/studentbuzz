@@ -11,6 +11,10 @@ const ClubSchema = new Schema({
         type: String,
         default: 'No description'
     },
+    avatar: {
+        type: String,
+        default: "https://firebasestorage.googleapis.com/v0/b/reva-hack-e99dd.appspot.com/o/boiler-pic.png?alt=media&token=6200673e-96a6-45b1-981f-3ed98bd7cebd"
+    },
     admin: {type: Schema.Types.ObjectId, ref: 'Student'},
     members: [{
         _id: {type: Schema.Types.ObjectId, ref: 'Student'},
@@ -24,7 +28,10 @@ const ClubSchema = new Schema({
         id: {type: Schema.Types.ObjectId},
         name: String,
         description: String,
-        image: Buffer,
+        image: {
+            url: {type: String, default: null},
+            imageName: {type: String, default: null},
+        },
     }, {default: []}],
     tasks: [{
         description: String,

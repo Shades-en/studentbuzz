@@ -1,23 +1,12 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import LoginStud from '../../components/login/loginStud.component';
 
-export default function MyApp() {
-  return (
-    <>
-      <Button variant="contained">Primary</Button>
-      <Button variant="contained" color="secondary">Secondary</Button>
-    </>
+const Home = () => {
+  return (  
+      <>
+          <LoginStud />
+      </>
   );
 }
 
-// const Home = () => {
-//   return (  
-//       <>
-//           <div>
-//               <h1>Home</h1>
-//           </div>
-//       </>
-//   );
-// }
-
-// export default Home;
+export default Home;

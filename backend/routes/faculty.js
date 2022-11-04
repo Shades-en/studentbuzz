@@ -7,6 +7,10 @@ const Student = require('../models/student')
 const Post = require('../models/post')
 const { uploadPost } = require('../middleware/upload')
 const fs = require('fs')
+var mime = require('mime-types')
+
+const storage = require('../firebase.js')
+const { getDownloadURL, ref, uploadString } = require('firebase/storage')
 
 const router = express.Router()
 
@@ -24,6 +28,13 @@ router.get('/posts', (req, res) => {
 
 router.post('/create-post', uploadPost.single('post'), async (req, res) => {
     try{
+
+        let mimeType = mime.contentType(req.file.filename)
+        let imageRef = ref(storage, `posts/` + req.file.filename);
+        let imageData = fs.readFileSync(`${process.cwd()}/uploads/posts/${req.file.filename}`, {encoding: 'base64'})
+        let snapshot = await uploadString(imageRef, imageData, 'base64', {contentType: mimeType})
+        let urlImage = await getDownloadURL(imageRef)
+
         const uni = await University.findOne({name: "MSRIT"})
         const faculty = await Faculty.findOne({name: "Lincy"})
         const classroom = await Class.findOne({name: "CSE 1"})
@@ -32,7 +43,7 @@ router.post('/create-post', uploadPost.single('post'), async (req, res) => {
             authorName: faculty.name,
             content: "Hello",
             image: {
-                data: fs.readFileSync(`${process.cwd()}/uploads/posts/${req.file.filename}`, {encoding: 'base64'}),
+                url: urlImage,
                 imageName: req.file.filename
             },
             university: uni._id,

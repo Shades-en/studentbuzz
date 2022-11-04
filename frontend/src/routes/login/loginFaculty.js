@@ -1,9 +1,9 @@
+import Login from '../../components/login/loginFaculty.component'; 
+
 const LoginFaculty = () => {
     return (  
         <>
-            <div>
-                <h1>login Faculty</h1>
-            </div>
+            <Login />
         </>
     );
 }

@@ -3,7 +3,12 @@ const {getCurrentStudent} = require('../middleware/auth')
 const Student = require('../models/student')
 const University = require('../models/university')
 const Club = require('../models/club')
-const { uploadEvent } = require('../middleware/upload')
+const { uploadEvent, uploadClub } = require('../middleware/upload')
+const fs = require('fs')
+var mime = require('mime-types')
+
+const storage = require('../firebase.js')
+const { getDownloadURL, ref, uploadString } = require('firebase/storage')
 
 const router = express.Router()
 
@@ -127,13 +132,23 @@ router.get('/getTasks', (req, res) => {
     })
 })
 
-router.post('/create-club', async (req, res) => {
+router.post('/create-club', uploadClub.single('club'), async (req, res) => {
     try{
+
+        
+        
+        let mimeType = mime.contentType(req.file.filename)
+        let imageRef = ref(storage, `clubs/` + req.file.filename);
+        let imageData = fs.readFileSync(`${process.cwd()}/uploads/clubs/${req.file.filename}`, {encoding: 'base64'})
+        let snapshot = await uploadString(imageRef, imageData, 'base64', {contentType: mimeType})
+        let urlImage = await getDownloadURL(imageRef)
+
         const uni = await University.findOne({name: "MSRIT"})
         const students = await Student.find({university: uni._id})
         const club = await Club.create({
-            name: "GDSC",
-            description: "Google Developer Student Club",
+            name: "GDSCS",
+            description: "GooglSe Developer Student Club",
+            avatar: urlImage,
             admin: students[0]._id,
             members: [{
                 _id: students[0]._id,
@@ -145,6 +160,7 @@ router.post('/create-club', async (req, res) => {
             events: [],
             tasks: [],
         })
+        fs.unlinkSync(`${process.cwd()}/uploads/clubs/${req.file.filename}`)
 
         res.json({
             msg: 'club created',

@@ -6,7 +6,7 @@ const PostSchema = new Schema({
     authorName: String,
     content: String,
     image: {
-        data: {type: String, default: null},
+        url: {type: String, default: null},
         imageName: {type: String, default: null},
     },
     university: {type: Schema.Types.ObjectId, ref: 'University'},
