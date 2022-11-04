@@ -1,9 +1,9 @@
+import Signup from "../../components/signup/signupUni.component";
+
 const SignupUni = () => {
     return (  
         <>
-            <div>
-                <h1>Sign Up Uni</h1>
-            </div>
+            <Signup/>
         </>
     );
 }
