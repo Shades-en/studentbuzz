@@ -1,4 +1,3 @@
 Black Hex: #010101 RGB: 1, 1, 1
-sky bluish: #69c9d0 rgb(105, 201, 208)
-pinkish red: #ee1d52 rgb(238, 29, 82)
-white: #ffffff rgb(255, 255, 255)
+grey-200: #e5e7eb
+indigo-500: #6366f1
