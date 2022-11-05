@@ -4,8 +4,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
-import AccountMenu from "./navBarStudOptions.component";
-import '../../routes/studentHome/studHome.css'
+import '../../routes/student/studHome.css'
 import ProfileImage from "../../assets/images/images_studHome/profile_image.png";
 import { Link } from "react-router-dom";
 
@@ -59,15 +58,15 @@ const Navbar = () => {
                       student<span className="text-indigo-500">B</span>uzZ
                   </div>
               </NavbarLogo>
-              <NavbarContent className="w-96" id="right_horizontal_nav">
+              {/* <NavbarContent className="w-96" id="right_horizontal_nav">
                 <div className="border-solid border-slate-300 rounded-md border-2 p-1">
                   <input type="text" placeholder="Search..." className="w-72 outline-none" />
                   <Link> <SearchIcon color="#6366f1" /> </Link>
                 </div>
-              </NavbarContent>
+              </NavbarContent> */}
               <NavbarContent  id="right_horizontal_nav">
                 <div className="flex items-center justify-around w-40">
-                  <div><img src={ProfileImage} className="w-10 rounded-full border-slate-700" alt="" /></div>
+                  <div><img src={ProfileImage} className="w-8 rounded-full border-slate-700" alt="" /></div>
                   <div className="dropdown text-black">
                     <button className="btn text-black dropdown-toggle hover:bg-white border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
                       Owais Iqbal
