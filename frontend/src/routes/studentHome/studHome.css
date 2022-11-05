@@ -4,11 +4,14 @@
 }
 
 .navbar_left{
-    min-width: 20%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+.nav_list{
+    margin-top: 1.2em;
 }
 
 .menu{
@@ -18,7 +21,7 @@
 }
 
 .cards_container{
-    min-width: 55%;
+    min-width: 57%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,10 +55,6 @@
     margin-bottom: 2em;
 }
 
-/* .css-35zqo5-MuiTabs-root{
-    height: 100%;
-} */
-
 /* searchbar color */
 .fpTHfu {
     background-color: #e5e7eb!important;
@@ -70,11 +69,6 @@
     top: 6em;
 }
 
-/* space between posts */
-.css-1ri6ub7-MuiPaper-root-MuiCard-root {
-    /* margin-bottom: 1em;
-    margin-top: 1em; */
-}
 
 /* search bar text */
 .lkTtqM{
@@ -94,11 +88,29 @@
 /* search bar */
 .css-96uuyl{
     position: relative;
-    right: 90%;
+    /* right: 150%; */
     border: 0.5px solid black;
 }
 
-/* navbar right side */
-.sc-dkrFOg{
-    width: auto;
+#nav_container{
+    min-width: 20%;
 }
+
+#nav_contents{
+    margin-top: 3.2em;
+    background-color: #f2f2f2;
+}
+
+#right_horizontal_nav{
+    position: relative;
+    right: 1.5em;
+}
+
+/* purple color for the icons */
+.MuiSvgIcon-root, .css-2kgxp5-MuiSvgIcon-root{
+    color: #6366f1;
+}
+
+/* .MuiTypography-root .MuiTypography-body1 .css-1lojo64-MuiTypography-root{
+    font-size: 2em;
+} */

@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import './studHome.css'
 import { Outlet } from "react-router-dom";
 import { ProSidebarProvider } from 'react-pro-sidebar';
-import NavVertical from '../../components/navbar/verticalNav.component';
+import VerticalNav from '../../components/navbar/verticalNavbar.component';
 import ListDividers from '../../components/studentHome/connect.component';
 import MediaCard from '../../components/studentHome/card.component';
 
@@ -31,9 +31,7 @@ export default function RecipeReviewCard() {
     <>
     <div className='student_home'>
         <div className='navbar_left'>
-            <ProSidebarProvider>
-                <NavVertical />
-            </ProSidebarProvider>
+            <VerticalNav />
         </div>
         <div className='cards_container'>
             <MediaCard />

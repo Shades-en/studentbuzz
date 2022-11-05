@@ -4,7 +4,8 @@ import SchoolIcon from '@mui/icons-material/School';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountMenu from "./navBarStudOptions.component";
+import '../../routes/studentHome/studHome.css'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -57,7 +58,7 @@ const Navbar = () => {
                     </div>
                     
                 </NavbarLogo>
-                <NavbarContent className="w-96">
+                <NavbarContent className="w-96" id="right_horizontal_nav">
                     <Search>
                         <SearchIconWrapper>
                         <SearchIcon />
@@ -67,9 +68,7 @@ const Navbar = () => {
                         inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
-                    <NavbarLink to='/'>Home</NavbarLink>
-                    <NavbarLink to='login-faculty'>Faculty Login</NavbarLink>
-                    <NavbarLink to='/'><AccountCircleIcon style={{"color":"#6366f1", "fontSize":"2em"}}></AccountCircleIcon></NavbarLink>
+                    <AccountMenu></AccountMenu>
                 </NavbarContent>
             </NavbarContainer>
             <Outlet />
