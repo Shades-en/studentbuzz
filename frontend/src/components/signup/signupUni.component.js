@@ -122,7 +122,7 @@ const Signup = () => {
 
                                 
                             
-                                    <div className="md:col-span-5 mt-5 text-center">
+                                    <div className="md:col-span-5 text-center">
                                         <div className="inline-flex items-end">
                                             <button className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                                         </div>

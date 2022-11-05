@@ -12,7 +12,7 @@ export const NavbarContainer = styled.nav`
     
     border-bottom: 2px solid #e0e0e0;
     justify-content: space-between;
-    height: auto;
+    height: 7%;
     background-color: rgba(255,255,255,0.91);
     
     //background-color: rgba(24, 24, 24, 0.91);
@@ -30,8 +30,9 @@ export const NavbarLogo = styled(Link)`
 
 export const NavbarContent = styled.div`
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
+    justify-content: center;
 `
 
 export const NavbarLink = styled(Link)`
