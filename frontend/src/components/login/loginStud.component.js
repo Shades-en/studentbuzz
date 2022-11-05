@@ -39,8 +39,8 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="mt-4 flex w-full justify-around">
-                            <Link to="/login-uni" className="cursor-pointer text-indigo-600 hover:text-indigo-500 ">University Login</Link>
-                            <Link to="/login-faculty" className="cursor-pointer text-indigo-600 hover:text-indigo-500 ">Faculty Login</Link>
+                            <Link to="/login-uni" className="cursor-pointer text-indigo-600 hover:underline ">University Login</Link>
+                            <Link to="/login-faculty" className="cursor-pointer text-indigo-600 hover:underline ">Faculty Login</Link>
                         </div>
                     </div>
                 </div>

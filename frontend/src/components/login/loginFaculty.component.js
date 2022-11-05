@@ -13,10 +13,10 @@ const Login = (props) => {
                     </div>
                     <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
 
-                        {type.faculty &&  <h2 className="text-center text-4xl  font-display font-bold lg:text-left xl:text-5xl
-                        xl:text-bold">Faculty Login</h2>}
+                        {type.faculty &&  <h3 className="text-center text-4xl  font-display font-bold lg:text-left xl:text-4xl
+                        xl:text-bold">Faculty Login</h3>}
 
-                        {type.uni &&  <h2 className="text-center text-4xl  font-display font-bold lg:text-left xl:text-5xl
+                        {type.uni &&  <h2 className="text-center text-4xl  font-display font-bold lg:text-left xl:text-4xl
                         xl:text-bold">University Login</h2>}
                         <div className="mt-12">
                             <form>
