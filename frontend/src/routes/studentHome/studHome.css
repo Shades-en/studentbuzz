@@ -72,8 +72,8 @@
 
 /* space between posts */
 .css-1ri6ub7-MuiPaper-root-MuiCard-root {
-    margin-bottom: 1em;
-    margin-top: 2em;
+    /* margin-bottom: 1em;
+    margin-top: 1em; */
 }
 
 /* search bar text */
@@ -94,7 +94,7 @@
 /* search bar */
 .css-96uuyl{
     position: relative;
-    right: 31em;
+    right: 90%;
     border: 0.5px solid black;
 }
 
