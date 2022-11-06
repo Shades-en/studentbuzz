@@ -8,7 +8,7 @@ export const NavbarContainer = styled.nav`
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 40;
     
     border-bottom: 2px solid #e0e0e0;
     justify-content: space-between;

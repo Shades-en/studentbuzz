@@ -5,7 +5,7 @@ import Student from './studentMember.component';
 export default function StudentList() {
     return (
         <>
-        <div className="max-w-screen-xl mt-5 mx-auto px-6 fixed right-0">
+        <div className="max-w-screen-xl mt-5 mx-auto px-6 fixed top-2 right-0">
             <div className="flex justify-center p-4 px-3 py-10">
                 <div className="w-full max-w-md">
                     <div className="bg-white shadow-md rounded-sm px-3 py-2 mb-4">
@@ -13,12 +13,13 @@ export default function StudentList() {
                             Students From Your University
                         </div>
                         
-                        <div className="py-1 text-sm">
+                        <div className="py-1 text-sm overflow-y-auto" style={{maxHeight: "80vh"}}>
                             <Student />
                             <Student />
                             <Student />
                             <Student />
                             <Student />
+                            
                         </div> 
                     </div>
                 </div>

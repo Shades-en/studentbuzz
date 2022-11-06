@@ -11,6 +11,8 @@ import SignupUni from './routes/signup/signupUni';
 import StudentHome from './routes/student/Feed';
 import Notification from './routes/student/notifications';
 import Search from './routes/student/search';
+import Clubs from './routes/student/clubs/clubs';
+import ClubDetails from './routes/student/clubs/clubDetails';
  
 function App() {
   return (
@@ -24,9 +26,11 @@ function App() {
         </Route>
         <Route path="/student" element={<NavbarStudent/>}>
           <Route path="" element={<SidebarStud />}>
-            <Route index element={<StudentHome/>}></Route>
-            <Route path="notification" element={<Notification/>}></Route>
+            <Route path="feed" element={<StudentHome/>}></Route>
+            <Route path="notif" element={<Notification/>}></Route>
             <Route path="search" element={<Search/>}></Route>
+            <Route path="clubs" element={<Clubs/>}></Route>
+            <Route path="clubs/club-detail" element={<ClubDetails/>}></Route>
           </Route>
         </Route>
       </Routes>
