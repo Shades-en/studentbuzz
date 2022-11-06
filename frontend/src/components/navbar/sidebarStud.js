@@ -20,6 +20,9 @@ const SidebarStud = () => {
         Object.keys(nav).forEach(key => {
             nav[key] = false;
         })
+        if(!localStorage.getItem('active')) {
+            localStorage.setItem('active', 'feed');
+        }
         nav[localStorage.getItem("active")] = true;
         setActive(nav);
         var activeElement = document.getElementById(localStorage.getItem("active"));
