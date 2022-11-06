@@ -1,6 +1,7 @@
-#radio_group{
+.radio_container{
   position: relative;
   top: 6em;
+  left: -4em;
 }
 
 .radio_color{
@@ -10,10 +11,4 @@
 .radio_color:hover{
   background-color: #6366f1;
   color: #ffffff; 
-}
-
-.radio_form{
-  position: relative;
-  z-index: 2;
-  top: 6em;
 }

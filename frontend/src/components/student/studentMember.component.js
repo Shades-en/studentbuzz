@@ -2,7 +2,7 @@ import FellowImage from '../../assets/images/images_studHome/profile_image.png';
 
 const Student = () => {
     return (  
-        <div className="flex justify-start items-center cursor-pointer text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2">
+        <div className="flex justify-start items-center cursor-pointer text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2" style={{"zIndex":"5"}}>
             <img src={FellowImage} className="bg-gray-400 w-8 m-2 rounded-full"></img>
             <div>
                 <div className="flex-grow font-medium px-2 w-44">Jeevika K</div>

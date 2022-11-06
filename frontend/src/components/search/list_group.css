@@ -1,0 +1,8 @@
+.list_group{
+    position: relative;
+    left: -4em;
+}
+
+.list_group > div{
+    width: 40em;
+}
