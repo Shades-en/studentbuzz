@@ -1,0 +1,75 @@
+/* ------form--------- */
+.student_form_container{
+    position: relative;
+    top: 6em;
+}
+
+.mx-auto > h4{
+    font-size:1.3em;
+    font-weight:500;
+    position: relative;
+    left: -3em;
+    margin-bottom: 1em;
+}
+
+.student_form{
+    position: relative;
+    right:4em;
+    border:1px solid #6366f1;
+}
+
+/*---------radio------------ */
+.radio_container{
+    position: relative;
+    top: 6em;
+    left: -4em;
+  }
+  
+  .radio_color{
+    border: 0.5px solid #6366f1;
+  }
+  
+  .radio_color:hover{
+    background-color: #6366f1;
+    color: #ffffff; 
+  }
+  
+/* ----------list---------- */
+.list_group{
+    position: relative;
+    left: -4em;
+}
+
+.list_group > div{
+    width: 40em;
+}
+
+/*--------card---------- */
+
+.clubs_card_container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 15em;
+  top: 8em;
+}
+
+.card{
+  width: 10em;
+  height: 8em;
+  background-color: #6366f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  margin: 0.5em;
+}
+
+.card > p{
+  color: #ffffff;
+  font-size: 1.1em;
+  font-weight: 500;
+}

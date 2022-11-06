@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import "./list_group.css"
+import "./search.css"
 
 const List = () => {
     return ( 
