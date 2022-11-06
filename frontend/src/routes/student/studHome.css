@@ -99,3 +99,15 @@
 .MuiSvgIcon-root, .css-2kgxp5-MuiSvgIcon-root{
     color: #6366f1;
 }
+
+.searc_container{
+    display: flex;
+}
+
+.search_left{
+    width: 65%;
+}
+
+.search_right{
+    width: 35%;    
+}
