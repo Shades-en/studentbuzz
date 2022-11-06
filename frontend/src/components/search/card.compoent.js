@@ -4,7 +4,7 @@ import "./search.css"
 const Cards = () => {
 
     const clubLink = (goTO) => {
-        <Link to="goTO"></Link>
+        <Link to={goTO}></Link>
     }
 
     return ( 
