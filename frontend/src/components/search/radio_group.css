@@ -1,0 +1,19 @@
+#radio_group{
+  position: relative;
+  top: 6em;
+}
+
+.radio_color{
+  border: 0.5px solid #6366f1;
+}
+
+.radio_color:hover{
+  background-color: #6366f1;
+  color: #ffffff; 
+}
+
+.radio_form{
+  position: relative;
+  z-index: 2;
+  top: 6em;
+}
