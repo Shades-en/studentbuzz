@@ -9,7 +9,7 @@ const Notification = () => {
         <>
             <div className='student_home bg-gray-100 min-h-screen '> 
                 <NotificationList/>
-                <div className='flex flex-col mt-20'>
+                <div className='flex flex-col items-center mr-44 mt-20'>
                     <NotificationDetail/>
                     <NotificationDetail/>
                     <NotificationDetail/>

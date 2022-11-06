@@ -14,7 +14,7 @@ const RadioGroup = () => {
     return (
         <>
             <div className="radio_container">
-                <div className="grid min-h-[50px] mx-5 scroll-mt-48 place-items-center overflow-x-scroll rounded-lg border-indigo-500 bg-[#f8fafc] p-2 lg:overflow-visible w-[35em] mx-auto">
+                <div className="grid min-h-[50px] place-content-center shadow-sm scroll-mt-48 place-items-center overflow-x-scroll rounded-lg border-indigo-500 bg-[#f8fafc] p-2 lg:overflow-visible w-[35em] mx-auto">
                     <form className="radio_form">
                         <input type="radio" id="student" name="search_type" value="student" className="button-gradient radio_color" data-ripple-light="true" onClick={() => {setStudent(true);setFacultyOrUni(false);setClubs(false)}}></input>
                         <label htmlFor="student" style={{"paddingRight":"1.5em","paddingLeft":"0.5em"}}>Student</label>
@@ -28,9 +28,9 @@ const RadioGroup = () => {
                 </div>
                 
             </div>
-            {faculty_or_uni? <List></List>:null } 
-            {student? <FormStudent></FormStudent>:null}
-            {clubs? <Cards></Cards>:null}
+            {faculty_or_uni? <List/>:null } 
+            {student? <FormStudent/>:null}
+            {clubs? <Cards/>:null}
             <Outlet />
         </>
      );

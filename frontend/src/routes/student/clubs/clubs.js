@@ -9,7 +9,7 @@ export default function Clubs() {
   return (
     <>
         <div className='flex flex-col items-end justify-start bg-gray-100 min-h-screen'>
-            <div className='w-10/12 flex flex-col'>
+            <div className='flex flex-col' style={{"width": "80%"}}>
                 <CreateClub/>
                 <ClubList/>
             </div>

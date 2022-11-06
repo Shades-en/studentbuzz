@@ -7,9 +7,12 @@ const Search = () => {
 
     return (  
         <>
-            <SearchBar></SearchBar>
-            <StudentList className="fixed right-0"/>
-            <RadioGroup></RadioGroup>          
+            <div className=' bg-gray-100 min-h-screen'>
+                <SearchBar></SearchBar>
+                
+                <RadioGroup></RadioGroup>   
+                <StudentList />
+            </div>       
         </>
     );
 }

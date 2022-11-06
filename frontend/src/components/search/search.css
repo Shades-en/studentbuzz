@@ -49,11 +49,11 @@
 .clubs_card_container{
   display: flex;
   flex-wrap: wrap;
-  width: 50%;
+  width: 60%;
   align-items: center;
   justify-content: center;
   position: relative;
-  left: 15em;
+  left: 12em;
   top: 8em;
 }
 

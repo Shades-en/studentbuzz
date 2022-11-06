@@ -1,6 +1,6 @@
 const Notification = () => {
     return (  
-        <div className="flex items-center p-3 w-96 bg-slate-100 rounded-lg shadow-xl mx-auto max-w-sm relative m-3">
+        <div className="flex items-center p-3 w-auto bg-slate-100 rounded-lg shadow-xl mx-auto max-w-sm relative m-3">
             <span className="text-xs font-semibold uppercase px-2 mt-2 mr-2 text-green-900  rounded-full absolute top-0 right-0">4:36 PM</span>
             {/* <span className="text-xs font-semibold uppercase m-1 py-1 mr-3 text-gray-500 absolute bottom-0 right-0">4:36 PM</span> */}
 
