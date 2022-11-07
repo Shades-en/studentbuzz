@@ -2,7 +2,7 @@ const ClubCard = () => {
     return (  
         <>
             <div >
-                <div className="  p-4 w-fit   rounded-2xl  hover:shadow-md transition duration-300">
+                <div className="p-3 w-fit   rounded-2xl  hover:shadow-md transition duration-300">
                     <img className="m-auto rounded-xl w-56" src="https://images.unsplash.com/photo-1547517023-7ca0c162f816" alt="" />
                     <div className="flex flex-col justify-between items-center">
                         <div className="mt-2">
