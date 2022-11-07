@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import UploadButton from "../upload/uploadButton";
 
 const ClubProfile = () => {
 
@@ -70,12 +71,45 @@ const ClubProfile = () => {
                                 Businesses often become known today through effective marketing. The marketing may be in the form of a regular news item or half column society news in the Sunday newspaper. The marketing may be in the form of a heart to heart.
                             </p>
                         </div>
+                        
+                    </div>
+                    <div className="flex justify-center">
+                        <input type={"button"} value={"Edit Profile"} className="mb-5 mt-1" style={{"padding":"0.6em","border":"0.5px solid #6366f1","borderRadius":"8px"}} data-bs-toggle="modal" data-bs-target="#editClubModal" data-bs-whatever="@getbootstrap"></input>
                     </div>
                 </div>
                 <div className="flex justify-center border-y-2 border-gray-200  py-5">
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoMembers}>Team</Link>
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoAchievements} >Achievements</Link>
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoEvents}>Events</Link>
+                </div>
+            </div>
+
+            <div className="modal fade" id="editClubModal" tabIndex="-1" aria-labelledby="editClubLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5 font-semibold" id="editClubModalLabel">Create Club</h1>
+                        </div>
+                        <div className="modal-body">
+                            <form>
+                                <div className="mb-3">
+                                    <label htmlFor="club-name" className="col-form-label">Name</label>
+                                    <input type="text" className="form-control" id="club-name"/>
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="club-description" className="col-form-label">Description</label>
+                                    <textarea className="form-control" id="club-description"></textarea>
+                                </div>
+                                
+                                <UploadButton label = {{"label": "Upload Display Picture"}}/>
+
+                            </form>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="p-2 rounded-md bg-red-600 text-gray-100" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Create</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

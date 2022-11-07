@@ -8,32 +8,32 @@ const CreateClub = () => {
             <button type="button" style={{border: "solid 2px #6366f1"}} className=" self-center flex items-center w-96 justify-center hover:text-blue-400 hover:bg-blue-400 h-10 mt-20 p-2 rounded-md bg-white shadow-md " data-bs-toggle="modal" data-bs-target="#createClubModal" data-bs-whatever="@getbootstrap">Create Club</button>
 
             <div className="modal fade" id="createClubModal" tabIndex="-1" aria-labelledby="createClubModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h1 className="modal-title fs-5 font-semibold" id="createClubModalLabel">Create Club</h1>
-                    </div>
-                    <div className="modal-body">
-                        <form>
-                        <div className="mb-3">
-                            <label htmlFor="club-name" className="col-form-label">Name</label>
-                            <input type="text" className="form-control" id="club-name"/>
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5 font-semibold" id="createClubModalLabel">Create Club</h1>
                         </div>
-                        <div className="mb-3">
-                            <label htmlFor="club-description" className="col-form-label">Description</label>
-                            <textarea className="form-control" id="club-description"></textarea>
-                        </div>
-                        
-                        <UploadButton label = {{"label": "Upload Display Picture"}}/>
+                        <div className="modal-body">
+                            <form>
+                            <div className="mb-3">
+                                <label htmlFor="club-name" className="col-form-label">Name</label>
+                                <input type="text" className="form-control" id="club-name"/>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="club-description" className="col-form-label">Description</label>
+                                <textarea className="form-control" id="club-description"></textarea>
+                            </div>
+                            
+                            <UploadButton label = {{"label": "Upload Display Picture"}}/>
 
-                        </form>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="p-2 rounded-md bg-red-600 text-gray-100" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Create</button>
+                            </form>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="p-2 rounded-md bg-red-600 text-gray-100" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Create</button>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </>
     );
