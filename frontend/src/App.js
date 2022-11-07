@@ -13,6 +13,7 @@ import Notification from './routes/student/notifications';
 import Search from './routes/student/search';
 import Clubs from './routes/student/clubs/clubs';
 import ClubDetails from './routes/student/clubs/clubDetails';
+import StudentProfile from './routes/student/profile';
  
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="feed" element={<StudentHome/>}></Route>
             <Route path="notif" element={<Notification/>}></Route>
             <Route path="search" element={<Search/>}></Route>
+            <Route path="profile" element={<StudentProfile />}></Route>
             <Route path="clubs" element={<Clubs/>}></Route>
             <Route path="clubs/club-detail" element={<ClubDetails/>}></Route>
           </Route>
