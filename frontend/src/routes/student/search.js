@@ -8,9 +8,10 @@ const Search = () => {
     return (  
         <>
             <div className=' bg-gray-100 min-h-screen'>
-                <SearchBar></SearchBar>
-                
-                <RadioGroup></RadioGroup>   
+                <div className="mr-10">
+                    <SearchBar></SearchBar>
+                    <RadioGroup></RadioGroup>  
+                </div>
                 <StudentList />
             </div>       
         </>

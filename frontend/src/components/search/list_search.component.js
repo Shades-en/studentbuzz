@@ -1,20 +1,25 @@
 import { Outlet } from "react-router-dom";
+import ListItem from "./search_list_item.component";
 import "./search.css"
 
 const List = () => {
     return ( 
         <>
-            <div className="mt-32 list_group">
-                <div className="px-4 sm:px-8 max-w-5xl m-auto">
-                    <ul className="border border-gray-200 rounded overflow-hidden shadow-md">
-                        <li className="px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">First Item</li>
-                        <li className="px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">Second Item</li>
-                        <li className="px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">Third Item</li>
-                        <li className="px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">Another Item</li>
-                        <li className="px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out">Item for the Nth time</li>
-                    </ul>
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="career-search mb-60">
+                        <div class="filter-result">
+                            <ListItem></ListItem>
+                            <ListItem></ListItem>
+                            <ListItem></ListItem>
+                            <ListItem></ListItem>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+        </div>
             <Outlet />
         </>
      );
