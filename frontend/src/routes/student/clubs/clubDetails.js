@@ -1,23 +1,30 @@
 import * as React from 'react';
-import StudentList from '../../../components/student/connect.component';
 import ClubProfile from '../../../components/club/clubProfile';
 import ClubMembers from '../../../components/club/clubMembers';
-
+import Achievements from '../../../components/general/achievementsList';
+import Events from '../../../components/club/clubsEvents';
+import Leaderboard from '../../../components/club/leaderboard';
+import { useState } from 'react';
 
 const ClubDetails = () => {
+    var tabs = { "members": true , "achievements": false, "events": false};
+    const [tab, setTab] = useState(tabs);
+
     return (  
         <>
             <div className='flex flex-col items-center justify-start bg-gray-100 min-h-screen'>
                 <div className="flex flex-col w-1/2 mr-48 mt-20 min-h-screen">
-                    <ClubProfile/>
+                    <ClubProfile setTab= {setTab}/>
 
                     <div className="bg-white pb-6 flex-1">
                         <div className="container mt-0 mx-auto">
-                            <ClubMembers/>
+                            { tabs.members && <ClubMembers/>}
+                            { tabs.achievements && <Achievements/>}
+                            { tabs.events && <Events/>}
                         </div>
                     </div>
                 </div>
-                <StudentList/>
+                <Leaderboard/>
             </div>
         </>
     );

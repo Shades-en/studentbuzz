@@ -1,6 +1,19 @@
-import ListItem from "../general/list_item.component";
+import { Link } from "react-router-dom";
 
 const ClubProfile = () => {
+
+    var gotoEvents = () => {
+        // setTab({ "members": false , "achievements": false, "events": true});
+    }
+
+    var gotoMembers = () => {
+        // setTab({ "members": true , "achievements": false, "events": false});
+    }
+
+    var gotoAchievements = () => {
+        // setTab({ "members": false , "achievements": true, "events": false});
+    }
+
     return (  
         <>
             <div className="bg-white mt-0 shadow-xl px-10">
@@ -60,9 +73,9 @@ const ClubProfile = () => {
                     </div>
                 </div>
                 <div className="flex justify-center border-y-2 border-gray-200  py-5">
-                    <a href="#" className="text-gray-600 mx-5 hover:text-indigo-500">Team</a>
-                    <a href="#" className="text-gray-600 mx-5 hover:text-indigo-500">Achievements</a>
-                    <a href="#" className="text-gray-600 mx-5 hover:text-indigo-500">Events</a>
+                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoMembers}>Team</Link>
+                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoAchievements} >Achievements</Link>
+                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoEvents}>Events</Link>
                 </div>
             </div>
         </>
