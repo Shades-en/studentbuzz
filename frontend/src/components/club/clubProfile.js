@@ -88,7 +88,7 @@ const ClubProfile = () => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5 font-semibold" id="editClubModalLabel">Create Club</h1>
+                            <h1 className="modal-title fs-5 font-semibold" id="editClubModalLabel">Edit Club</h1>
                         </div>
                         <div className="modal-body">
                             <form>
@@ -107,7 +107,7 @@ const ClubProfile = () => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="p-2 rounded-md bg-red-600 text-gray-100" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Create</button>
+                            <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Edit</button>
                         </div>
                     </div>
                 </div>
