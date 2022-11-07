@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import ListItem from "./search_list_item.component";
+import ListItem from "../general/list_item.component";
 import "./search.css"
 
 const List = () => {

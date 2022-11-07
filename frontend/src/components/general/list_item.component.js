@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 const ListItem = () => {
     return ( 
         <>
-        <div className="job-box shadow-md d-md-flex align-items-center justify-content-between w-fit h-fit" style={{"marginBottom":"0.7em"}}>
+        <div className="job-box px-4 py-2 rounded-md d-md-flex align-items-center justify-content-between w-fit h-fit" style={{"marginBottom":"0.7em", "boxShadow": "0 0 10px 1px rgba(130, 130, 130, 0.2)"}}>
             <div className="job-left my-2 d-md-flex align-items-center justify-center flex-wrap">
                 <div className="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style={{"position":"relative"}}>
                 <img className="h-9 w-9 rounded-full" alt="John Doe's avatar"
