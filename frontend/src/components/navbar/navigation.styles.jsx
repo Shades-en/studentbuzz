@@ -12,7 +12,7 @@ export const NavbarContainer = styled.nav`
     
     border-bottom: 2px solid #e0e0e0;
     justify-content: space-between;
-    height: 7%;
+    height: 3.9vw;
     background-color: rgba(255,255,255);
     
     //background-color: rgba(24, 24, 24, 0.91);

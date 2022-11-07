@@ -32,8 +32,8 @@ const Login = (props) => {
                                     </div>
                                     <input className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password"/>
                                 </div>
-                                <div className="mt-10">
-                                    <button className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
+                                <div className="mt-10 flex justify-center">
+                                    <button className="bg-indigo-500 text-gray-100 p-3 w-10/12 rounded-full tracking-wide
                                     font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
                                     shadow-lg">
                                         Log In

@@ -77,6 +77,8 @@ const Navbar = () => {
                       <li><a className="dropdown-item" href="#">Sign Out</a></li>
                     </ul>
                   </div>
+
+                  
                 </div>
               </NavbarContent>
             </NavbarContainer>

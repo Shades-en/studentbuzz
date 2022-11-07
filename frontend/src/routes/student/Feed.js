@@ -7,8 +7,10 @@ export default function Feed() {
 
   return (
     <>
+    
     <div className='student_home bg-gray-100 min-h-screen'>
         <Showcase/>
+        
         <StudentList/>
     </div>
     <Outlet />
