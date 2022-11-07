@@ -4,7 +4,7 @@ const NotificationDetail = () => {
     return (  
         <>
             <div className="bg-white my-2" style={{width: "70%"}}>
-                <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-md bg-white">
+                <div className="container mt-0 max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-md bg-white">
                     <div className="flex items-center justify-between">
                         <span className="text-sm dark:text-gray-400">Jun 1, 2020</span>
                         <span rel="noopener noreferrer" className="px-2 py-1 rounded bg-violet-300 ">Sent</span>
