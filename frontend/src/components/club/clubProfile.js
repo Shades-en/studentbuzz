@@ -2,23 +2,22 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import UploadButton from "../upload/uploadButton";
 
-const ClubProfile = (props) => {
-    
-
-    useEffect(() => {
-        // props.setTab({ "members": false , "achievements": false, "events": true})
-    }, [])
+const ClubProfile = ({setTab}) => {    
 
     var gotoEvents = () => {
-        props.setTab({ "members": false , "achievements": false, "events": true});
+        setTab({ "members": false , "achievements": false, "events": true, "tasks": false});
     }
 
     var gotoMembers = () => {
-        props.setTab({ "members": true , "achievements": false, "events": false});
+        setTab({ "members": true , "achievements": false, "events": false, "tasks": false});
     }
 
     var gotoAchievements = () => {
-        props.setTab({ "members": false , "achievements": true, "events": false});
+        setTab({ "members": false , "achievements": true, "events": false, "tasks": false});
+    }
+
+    var gotoTasks = () => {
+        setTab({ "members": false , "achievements": false, "events": false, "tasks": true});
     }
 
     return (  
@@ -87,6 +86,7 @@ const ClubProfile = (props) => {
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoMembers}>Team</Link>
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoAchievements} >Achievements</Link>
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoEvents}>Events</Link>
+                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoTasks}>Tasks</Link>
                 </div>
             </div>
 

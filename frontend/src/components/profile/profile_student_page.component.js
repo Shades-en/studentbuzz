@@ -42,7 +42,7 @@ const ProfileStudent = () => {
                             </div>
                         </div>
                         <div className="text-center">
-                            <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                            <h3 className="text-xl font-semibold leading-normal text-blueGray-700 mb-2">
                                 Jenna Stones
                             </h3>
                             <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
@@ -54,11 +54,11 @@ const ProfileStudent = () => {
                                 Reva University
                             </div>
                             <div className="mb-2 text-blueGray-600">
-                            <i class="fas fa-solid fa-graduation-cap mr-2 text-lg text-blueGray-400"></i>
+                            <i className="fas fa-solid fa-graduation-cap mr-2 text-lg text-blueGray-400"></i>
                                 Information Science Engineering
                             </div>
                             <div className="mb-2 text-blueGray-600">
-                            <i class="fas fa-solid fa-hashtag mr-2 text-lg text-blueGray-400"></i>
+                            <i className="fas fa-solid fa-hashtag mr-2 text-lg text-blueGray-400"></i>
                                 USN - 1MS20IS100
                             </div>
                         </div>
@@ -86,7 +86,7 @@ const ProfileStudent = () => {
                                 <div className="w-full lg:w-9/12 header_profile">
                                     <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Projects</p>
                                     <div className="add_slot">
-                                        <i class="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
+                                        <i className="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@ const ProfileStudent = () => {
                                 <div className="w-full lg:w-9/12 header_profile">
                                     <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Achievements</p>
                                     <div className="add_slot">
-                                        <i class="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
+                                        <i className="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@ const ProfileStudent = () => {
                                 <div className="w-full lg:w-9/12 header_profile">
                                     <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Clubs</p>
                                     <div className="add_slot">
-                                        <i class="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
+                                        <i className="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
                                     </div>
                                 </div>
                             </div>

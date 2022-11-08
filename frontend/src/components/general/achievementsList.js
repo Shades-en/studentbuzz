@@ -42,7 +42,6 @@ const Achievements = () => {
                     <AchievementItem/>
                     <AchievementItem/>
                 </div>
-                
             </div>
         </>
     );

@@ -5,10 +5,10 @@ import Achievements from '../../../components/general/achievementsList';
 import Events from '../../../components/club/clubsEvents';
 import Leaderboard from '../../../components/club/leaderboard';
 import { useState } from 'react';
-import { useEffect } from 'react';
+import TaskList from '../../../components/club/taskList';
 
 const ClubDetails = () => {
-    var tabs = { "members": true , "achievements": false, "events": false};
+    var tabs = { "members": true , "achievements": false, "events": false, "tasks": false};
     const [tab, setTab] = useState(tabs);
 
     return (  
@@ -22,6 +22,7 @@ const ClubDetails = () => {
                             { tab?.members && <ClubMembers/>}
                             { tab?.achievements && <Achievements/>}
                             { tab?.events && <Events/>}
+                            { tab?.tasks && <TaskList/>}
                         </div>
                     </div>
                 </div>

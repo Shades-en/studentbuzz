@@ -1,4 +1,4 @@
-import EventCard from "../../routes/student/clubs/eventCard";
+import EventCard from "./eventCard";
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import { Link } from "react-router-dom";
 import UploadButton from "../upload/uploadButton";
