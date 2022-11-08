@@ -1,18 +1,24 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import UploadButton from "../upload/uploadButton";
 
-const ClubProfile = () => {
+const ClubProfile = (props) => {
+    
+
+    useEffect(() => {
+        // props.setTab({ "members": false , "achievements": false, "events": true})
+    }, [])
 
     var gotoEvents = () => {
-        // setTab({ "members": false , "achievements": false, "events": true});
+        props.setTab({ "members": false , "achievements": false, "events": true});
     }
 
     var gotoMembers = () => {
-        // setTab({ "members": true , "achievements": false, "events": false});
+        props.setTab({ "members": true , "achievements": false, "events": false});
     }
 
     var gotoAchievements = () => {
-        // setTab({ "members": false , "achievements": true, "events": false});
+        props.setTab({ "members": false , "achievements": true, "events": false});
     }
 
     return (  

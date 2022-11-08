@@ -13,7 +13,7 @@ const BoardMember = () => {
                         <div className="job-content" style={{"display":"flex"}}>
                             <p className="text-center text-md-left" style={{"fontSize":"0.9em","fontWeight":"400","paddingLeft":"1em"}}>Mr. Bleh John</p>
                             {/* <p style={{"fontWeight":"400","paddingLeft":"1em","fontSize":"0.9em"}}>1MS20IS081</p> */}
-                            <p style={{"fontWeight":"400","paddingLeft":"4em","fontSize":"0.9em"}}>1 <StarPurple500SharpIcon fontSize='small'/> </p>
+                            <p className='ml-1' style={{"fontWeight":"400","paddingLeft":"7em","fontSize":"1.2em", "display": "flex", "alignItems": "center"}}>1 <StarPurple500SharpIcon fontSize='small'/> </p>
                         </div>
                     </div>
                 </div>

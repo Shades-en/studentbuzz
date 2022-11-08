@@ -12,7 +12,7 @@ const Leaderboard = () => {
                             Leaderboard  <LeaderboardSharpIcon className="ml-3"/>
                         </div>
                         
-                        <div className="py-1 flex flex-col  text-sm overflow-y-auto" style={{maxHeight: "80vh"}}>
+                        <div className="py-1 flex flex-col text-sm overflow-y-auto" style={{maxHeight: "80vh"}}>
                             <BoardMember/>
                             <BoardMember/>
                             <BoardMember/>

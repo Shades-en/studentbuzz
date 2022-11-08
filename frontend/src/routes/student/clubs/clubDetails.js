@@ -5,6 +5,7 @@ import Achievements from '../../../components/general/achievementsList';
 import Events from '../../../components/club/clubsEvents';
 import Leaderboard from '../../../components/club/leaderboard';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const ClubDetails = () => {
     var tabs = { "members": true , "achievements": false, "events": false};
@@ -14,13 +15,13 @@ const ClubDetails = () => {
         <>
             <div className='flex flex-col items-center justify-start bg-gray-100 min-h-screen'>
                 <div className="flex flex-col w-1/2 mr-48 mt-20 min-h-screen">
-                    <ClubProfile setTab= {setTab}/>
+                    <ClubProfile setTab = {setTab} tab = {tab}/>
 
                     <div className="bg-white pb-6 flex-1">
                         <div className="container mt-0 mx-auto">
-                            { tabs.members && <ClubMembers/>}
-                            { tabs.achievements && <Achievements/>}
-                            { tabs.events && <Events/>}
+                            { tab?.members && <ClubMembers/>}
+                            { tab?.achievements && <Achievements/>}
+                            { tab?.events && <Events/>}
                         </div>
                     </div>
                 </div>
