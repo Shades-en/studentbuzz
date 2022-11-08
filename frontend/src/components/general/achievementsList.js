@@ -3,8 +3,8 @@ import AchievementItem from "./achievementItem";
 const Achievements = () => {
     return (  
         <>  
-            <div className="mt-5 flex flex-col">
-                <button type="button" style={{border: "solid 2px #6366f1"}} className=" self-center flex items-center w-40 justify-center hover:text-blue-400 hover:bg-blue-400 h-10 p-2 rounded-md bg-white shadow-md " data-bs-toggle="modal" data-bs-target="#addAchievementModal" data-bs-whatever="@getbootstrap">Add Achievement</button>
+            <div className=" flex flex-col">
+                <button type="button" style={{border: "solid 2px #6366f1"}} className="mt-5 self-center flex items-center w-40 justify-center hover:text-blue-400 hover:bg-blue-400 h-10 p-2 rounded-md bg-white shadow-md " data-bs-toggle="modal" data-bs-target="#addAchievementModal" data-bs-whatever="@getbootstrap">Add Achievement</button>
                 <div className="modal fade" id="addAchievementModal" tabIndex="-1" aria-labelledby="addAchievementModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">

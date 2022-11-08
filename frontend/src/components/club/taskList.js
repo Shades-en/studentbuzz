@@ -3,8 +3,8 @@ import Task from "./task";
 const TaskList = () => {
     return (  
         <>
-            <div className = "flex flex-col mt-5">
-                <button type="button" style={{border: "solid 2px #6366f1"}} className=" self-center flex items-center w-40 justify-center hover:text-blue-400 hover:bg-blue-400 h-10 p-2 rounded-md bg-white shadow-md " data-bs-toggle="modal" data-bs-target="#addTaskModal" data-bs-whatever="@getbootstrap">Assign Task</button>
+            <div className = "flex flex-col ">
+                <button type="button" style={{border: "solid 2px #6366f1"}} className="mt-5 self-center flex items-center w-40 justify-center hover:text-blue-400 hover:bg-blue-400 h-10 p-2 rounded-md bg-white shadow-md " data-bs-toggle="modal" data-bs-target="#addTaskModal" data-bs-whatever="@getbootstrap">Assign Task</button>
                 
                 <div className="modal fade" id="addTaskModal" tabIndex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
