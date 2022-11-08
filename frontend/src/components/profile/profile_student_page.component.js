@@ -1,7 +1,11 @@
 import { Outlet } from "react-router-dom";
 import ProfileDetails from "./profile_details_list.component";
+import "./profile.css"
 
 const ProfileStudent = () => {
+
+
+
     return ( 
         <>  
             <section className="pt-16 bg-blueGray-50">
@@ -57,10 +61,8 @@ const ProfileStudent = () => {
                             <i class="fas fa-solid fa-hashtag mr-2 text-lg text-blueGray-400"></i>
                                 USN - 1MS20IS100
                             </div>
-                            <div className="edit_profile">
-                                <input type={"button"} value={"Edit Profile"} style={{"padding":"0.6em","border":"0.5px solid #6366f1","borderRadius":"8px","marginTop":"1em"}}></input>
-                            </div>
                         </div>
+
                         <div className="mt-10 py-4 border-t border-blueGray-200 text-center">
                             <div className="flex flex-wrap justify-center">
                                 <div className="w-full lg:w-9/12 px-4">
@@ -74,35 +76,43 @@ const ProfileStudent = () => {
                                     </p>
                                 </div>
                             </div>
+                            <div className="edit_profile">
+                                <input type={"button"} value={"Edit About"} style={{"padding":"0.6em","border":"0.5px solid #6366f1","borderRadius":"8px","marginTop":"1em"}}></input>
+                            </div>
                         </div>
 
                         <div className="mt-4 py-10 border-t border-blueGray-200 text-center">
                             <div className="flex flex-wrap justify-center">
-                                <div className="w-full lg:w-9/12 ">
+                                <div className="w-full lg:w-9/12 header_profile">
                                     <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Projects</p>
-                                    <ProfileDetails />
+                                    <div className="add_slot">
+                                        <i class="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="mt-4 py-10 border-t border-blueGray-200 text-center">
                             <div className="flex flex-wrap justify-center">
-                                <div className="w-full lg:w-9/12 ">
+                                <div className="w-full lg:w-9/12 header_profile">
                                     <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Achievements</p>
-                                    <ProfileDetails />
+                                    <div className="add_slot">
+                                        <i class="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="mt-4 py-10 border-t border-blueGray-200 text-center">
                             <div className="flex flex-wrap justify-center">
-                                <div className="w-full lg:w-9/12 ">
+                                <div className="w-full lg:w-9/12 header_profile">
                                     <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Clubs</p>
-                                    <ProfileDetails />
+                                    <div className="add_slot">
+                                        <i class="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 </div>
