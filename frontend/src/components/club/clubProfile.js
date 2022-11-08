@@ -5,19 +5,23 @@ import UploadButton from "../upload/uploadButton";
 const ClubProfile = ({setTab}) => {    
 
     var gotoEvents = () => {
-        setTab({ "members": false , "achievements": false, "events": true, "tasks": false});
+        setTab({ "members": false , "achievements": false, "events": true, "tasks": false, "feed": false});
     }
 
     var gotoMembers = () => {
-        setTab({ "members": true , "achievements": false, "events": false, "tasks": false});
+        setTab({ "members": true , "achievements": false, "events": false, "tasks": false, "feed": false});
     }
 
     var gotoAchievements = () => {
-        setTab({ "members": false , "achievements": true, "events": false, "tasks": false});
+        setTab({ "members": false , "achievements": true, "events": false, "tasks": false, "feed": false});
     }
 
     var gotoTasks = () => {
-        setTab({ "members": false , "achievements": false, "events": false, "tasks": true});
+        setTab({ "members": false , "achievements": false, "events": false, "tasks": true, "feed": false});
+    }
+
+    var gotoFeed = () => {
+        setTab({ "members": false , "achievements": false, "events": false, "tasks": false, "feed": true});
     }
 
     return (  
@@ -87,6 +91,7 @@ const ClubProfile = ({setTab}) => {
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoAchievements} >Achievements</Link>
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoEvents}>Events</Link>
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoTasks}>Tasks</Link>
+                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoFeed}>Feed</Link>
                 </div>
             </div>
 
