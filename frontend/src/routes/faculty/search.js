@@ -1,6 +1,6 @@
 import SearchBar from "../../components/search/search_bar.component";
 import RadioGroup from "../../components/search/radio_group.component.js";
-import StudentList from '../../components/student/connectStudent';
+import FacultyList from '../../components/faculty/connectFac';
 import "./studHome.css"
 
 const Search = () => {
@@ -12,7 +12,7 @@ const Search = () => {
                     <SearchBar></SearchBar>
                     <RadioGroup></RadioGroup>  
                 </div>
-                <StudentList />
+                <FacultyList/>
             </div>       
         </>
     );

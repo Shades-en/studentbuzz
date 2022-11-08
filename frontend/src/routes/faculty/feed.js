@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Outlet } from "react-router-dom";
-import StudentList from '../../components/student/connectStudent';
-import StudentShowcase from '../../components/student/showcase.component';
+import FacultyList from '../../components/faculty/connectFac';
+import FacultyShowcase from '../../components/student/showcase.component';
 
 export default function Feed() {
 
@@ -9,9 +9,8 @@ export default function Feed() {
     <>
     
     <div className='student_home bg-gray-100 min-h-screen'>
-        <StudentShowcase/>
-        
-        <StudentList/>
+        <FacultyShowcase/>  
+        <FacultyList/>
     </div>
     <Outlet />
     </>

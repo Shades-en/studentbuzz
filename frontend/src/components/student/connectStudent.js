@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Outlet } from 'react-router-dom';
-import Student from './studentMember.component';
+import Student from '../general/Member.component';
 
 export default function StudentList() {
     return (

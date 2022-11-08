@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Outlet } from "react-router-dom";
 import CreateClub from '../../../components/club/createClub';
 import ClubList from '../../../components/club/clubList';
 
@@ -14,7 +13,6 @@ export default function Clubs() {
                 <ClubList/>
             </div>
         </div>
-        <Outlet />
     </>
   );
 }
