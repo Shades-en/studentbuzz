@@ -1,6 +1,11 @@
 import { Outlet } from "react-router-dom";
 import ProfileDetails from "./profile_details_list.component";
 import "./profile.css"
+import ProjectDetails from "./project_details.component";
+import AchievmentDetails from "./achievements_details.component";
+import ClubsDetails from "./clubs_details.component";
+import UploadButton from "../upload/uploadButton";
+import SkillsDetails from "./skills_details.component";
 
 const ProfileStudent = () => {
 
@@ -18,30 +23,9 @@ const ProfileStudent = () => {
                                 <img alt="..." src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px" />
                             </div>
                         </div>
-                        <div className="w-full px-4 text-center mt-20">
-                            <div className="flex justify-center py-4 lg:pt-4 pt-8">
-                                <div className="mr-4 p-3 text-center">
-                                <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                    22
-                                </span>
-                                <span className="text-sm text-blueGray-400">Friends</span>
-                                </div>
-                                <div className="mr-4 p-3 text-center">
-                                <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                    10
-                                </span>
-                                <span className="text-sm text-blueGray-400">Photos</span>
-                                </div>
-                                <div className="lg:mr-4 p-3 text-center">
-                                <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                    89
-                                </span>
-                                <span className="text-sm text-blueGray-400">Comments</span>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div className="text-center">
+                        
+                    </div>
+                        <div className="text-center" style={{"marginTop":"7em"}}>
                             <h3 className="text-xl font-semibold leading-normal text-blueGray-700 mb-2">
                                 Jenna Stones
                             </h3>
@@ -61,7 +45,41 @@ const ProfileStudent = () => {
                             <i className="fas fa-solid fa-hashtag mr-2 text-lg text-blueGray-400"></i>
                                 USN - 1MS20IS100
                             </div>
+
+                            <div className="edit_profile">
+                                <input type={"button"} value={"Edit Profile"} style={{"padding":"0.6em","border":"0.5px solid #6366f1","borderRadius":"8px","marginTop":"1em"}} data-bs-toggle="modal" data-bs-target="#editProfileModal" data-bs-whatever="@getbootstrap"></input>
+                            </div>
+
                         </div>
+
+                        <div className="modal fade" id="editProfileModal" tabIndex="-1" aria-labelledby="editProfileLabel" aria-hidden="true">
+                                <div className="modal-dialog">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
+                                            <h1 className="modal-title fs-5 font-semibold" id="editProfileModalLabel">Edit Club</h1>
+                                        </div>
+                                        <div className="modal-body">
+                                            <form>
+                                                {/* <div className="mb-3">
+                                                    <label htmlFor="profile-name" className="col-form-label">Name</label>
+                                                    <input type="text" className="form-control" id="profile-name"/>
+                                                </div>  */}
+                                                <div className="mb-3">
+                                                    <label htmlFor="profile-description" className="col-form-label">Description</label>
+                                                    <textarea className="form-control" id="profile-description"></textarea>
+                                                </div>
+                                                
+                                                <UploadButton label = {{"label": "Upload Display Picture"}}/>
+
+                                            </form>
+                                        </div>
+                                        <div className="modal-footer">
+                                            <button type="button" className="p-2 rounded-md bg-red-600 text-gray-100" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         <div className="mt-10 py-4 border-t border-blueGray-200 text-center">
                             <div className="flex flex-wrap justify-center">
@@ -76,43 +94,16 @@ const ProfileStudent = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className="edit_profile">
-                                <input type={"button"} value={"Edit About"} style={{"padding":"0.6em","border":"0.5px solid #6366f1","borderRadius":"8px","marginTop":"1em"}}></input>
-                            </div>
+                            
                         </div>
 
-                        <div className="mt-4 py-10 border-t border-blueGray-200 text-center">
-                            <div className="flex flex-wrap justify-center">
-                                <div className="w-full lg:w-9/12 header_profile">
-                                    <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Projects</p>
-                                    <div className="add_slot">
-                                        <i className="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <ProjectDetails />
 
-                        <div className="mt-4 py-10 border-t border-blueGray-200 text-center">
-                            <div className="flex flex-wrap justify-center">
-                                <div className="w-full lg:w-9/12 header_profile">
-                                    <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Achievements</p>
-                                    <div className="add_slot">
-                                        <i className="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <SkillsDetails />
 
-                        <div className="mt-4 py-10 border-t border-blueGray-200 text-center">
-                            <div className="flex flex-wrap justify-center">
-                                <div className="w-full lg:w-9/12 header_profile">
-                                    <p style={{"fontSize":"1.4em","fontWeight":"500","paddingBottom":"0.5em"}}>Clubs</p>
-                                    <div className="add_slot">
-                                        <i className="fa fa-sharp fa-solid fa-plus text-lg text-blueGray-400"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <AchievmentDetails />
+
+                        <ClubsDetails />
                     </div>
                 </div>
                 </div>
