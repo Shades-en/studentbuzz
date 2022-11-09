@@ -1,14 +1,11 @@
 import * as React from 'react';
 import ClassProfile from './classProfile';
 import ClubMembers from '../club/clubMembers';
-import Achievements from '../general/achievementsList';
-import Events from '../club/clubsEvents';
 import { useState } from 'react';
-import TaskList from '../club/taskList';
-import ClubFeed from '../club/clubFeed';
+import ClassFeed from '../general/groupFeed';
 
 const ClassDetails = () => {
-    var tabs = { "members": true , "achievements": false, "events": false, "tasks": false, "feed": false};
+    var tabs = { "members": true, "feed": false};
     const [tab, setTab] = useState(tabs);
 
     return (  
@@ -20,10 +17,7 @@ const ClassDetails = () => {
                     <div className="bg-white pb-6 flex-1">
                         <div className="container mt-0 mx-auto">
                             { tab?.members && <ClubMembers/>}
-                            { tab?.achievements && <Achievements/>}
-                            { tab?.events && <Events/>}
-                            { tab?.tasks && <TaskList/>}
-                            { tab?.feed && <ClubFeed/>}
+                            { tab?.feed && <ClassFeed/>}
                         </div>
                     </div>
                 </div>

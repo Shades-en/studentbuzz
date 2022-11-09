@@ -6,7 +6,7 @@ import Events from '../../../components/club/clubsEvents';
 import Leaderboard from '../../../components/club/leaderboard';
 import { useState } from 'react';
 import TaskList from '../../../components/club/taskList';
-import ClubFeed from '../../../components/club/clubFeed';
+import ClubFeed from '../../../components/general/groupFeed';
 
 const ClubDetails = () => {
     var tabs = { "members": true , "achievements": false, "events": false, "tasks": false, "feed": false};

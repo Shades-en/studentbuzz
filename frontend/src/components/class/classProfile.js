@@ -3,24 +3,12 @@ import { Link } from "react-router-dom";
 
 const ClassProfile = ({setTab}) => {    
 
-    var gotoEvents = () => {
-        setTab({ "members": false , "achievements": false, "events": true, "tasks": false, "feed": false});
-    }
-
-    var gotoMembers = () => {
-        setTab({ "members": true , "achievements": false, "events": false, "tasks": false, "feed": false});
-    }
-
-    var gotoAchievements = () => {
-        setTab({ "members": false , "achievements": true, "events": false, "tasks": false, "feed": false});
-    }
-
-    var gotoTasks = () => {
-        setTab({ "members": false , "achievements": false, "events": false, "tasks": true, "feed": false});
+    var gotoClassStudents = () => {
+        setTab({ "members": true , "feed": false});
     }
 
     var gotoFeed = () => {
-        setTab({ "members": false , "achievements": false, "events": false, "tasks": false, "feed": true});
+        setTab({ "members": false , "feed": true});
     }
 
     return (  
@@ -55,10 +43,7 @@ const ClassProfile = ({setTab}) => {
                     </div>
                 </div>
                 <div className="flex justify-center border-y-2 border-gray-200  py-5">
-                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoMembers}>Team</Link>
-                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoAchievements} >Achievements</Link>
-                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoEvents}>Events</Link>
-                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoTasks}>Tasks</Link>
+                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoClassStudents}>Team</Link>
                     <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoFeed}>Feed</Link>
                 </div>
             </div>
@@ -80,8 +65,6 @@ const ClassProfile = ({setTab}) => {
                                     <textarea className="form-control" id="club-description"></textarea>
                                 </div>
                                 
-                                {/* <UploadButton label = {{"label": "Upload Display Picture"}}/> */}
-
                             </form>
                         </div>
                         <div className="modal-footer">
