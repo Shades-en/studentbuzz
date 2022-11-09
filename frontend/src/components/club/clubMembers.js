@@ -9,13 +9,13 @@ const ClubMembers = () => {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h1 className="modal-title fs-5 font-semibold" id="addAchieMemberLabel">Add Member</h1>
+                                <h1 className="modal-title fs-5 font-semibold" id="addMemberLabel">Add Member</h1>
                             </div>
                             <div className="modal-body">
                                 <form>
                                     <div className="mb-3">
-                                        <label htmlFor="achievement-name" className="col-form-label">Member's USN</label>
-                                        <input type="text" className="form-control" id="achievement-name"/>
+                                        <label htmlFor="member-usn" className="col-form-label">Member's USN</label>
+                                        <input type="text" className="form-control" id="member-usn"/>
                                     </div>
                                 </form>
                             </div>

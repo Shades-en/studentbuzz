@@ -3,12 +3,12 @@ import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp
 import { Link } from "react-router-dom";
 import UploadButton from "../upload/uploadButton";
 
-const Events = () => {
+const LatestEvents = () => {
     return (  
         <>  
             <div>
                 <div>
-                    <h4 className="text-2xl text-center font-semibold mt-5"> UPCOMING EVENTS 
+                    <h4 className="text-2xl text-center font-semibold mt-5"> LATEST EVENTS 
                         <Link className="ml-3" data-bs-toggle="modal" data-bs-target="#addEventModal" data-bs-whatever="@getbootstrap"> 
                             <AddCircleOutlineSharpIcon/> 
                         </Link> 
@@ -20,19 +20,7 @@ const Events = () => {
                     <EventCard/>    
                     <EventCard/>
                 </main>
-                <div>
-                    <h4 className="text-2xl text-center font-semibold mt-5"> PREVIOUS EVENTS 
-                        <Link className="ml-3" data-bs-toggle="modal" data-bs-target="#addEventModal" data-bs-whatever="@getbootstrap"> 
-                            <AddCircleOutlineSharpIcon/> 
-                        </Link> 
-                    </h4>
-                </div>
-                <main className="h-fit mx-6 py-6 flex items-center justify-center flex-wrap">
-                    <EventCard/>    
-                    <EventCard/>
-                    <EventCard/>    
-                    <EventCard/>
-                </main>
+            
             </div>
             
             <div className="modal fade" id="addEventModal" tabIndex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
@@ -51,13 +39,7 @@ const Events = () => {
                                 <label htmlFor="event-description" className="col-form-label">Description</label>
                                 <textarea className="form-control" id="event-description"></textarea>
                             </div>
-                            <div>
-                                <label htmlFor="event-type" className="col-form-label">Type</label>
-                                <select className="form-select" aria-label="Default select example" id="event-type">
-                                    <option selected>Upcoming</option>
-                                    <option defaultValue="1">Previous</option>
-                                </select>
-                            </div>
+                           
                             <UploadButton label={{label: "Upload Event Poster"}}/>
                             </form>
                         </div>
@@ -72,4 +54,4 @@ const Events = () => {
     );
 }
  
-export default Events;
+export default LatestEvents;

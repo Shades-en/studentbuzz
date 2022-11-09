@@ -1,4 +1,4 @@
-import ClubCard from "./clubCard";
+import ClubCard from "../general/groupCard";
 
 const ClubList = () => {
     return (  

@@ -1,7 +1,6 @@
 .header_profile{
     display: flex;
     justify-content: space-between;
-    width: 32em;
 }
 
 .add_slot{

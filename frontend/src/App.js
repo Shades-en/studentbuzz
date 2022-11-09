@@ -12,10 +12,10 @@ import Navbar from './components/navbar/nav.component';
 
 import SidebarStud from './components/navbar/sidebarStud';
 import StudentFeed from './routes/student/feed';
-import Notification from './routes/student/notifications';
-import Search from './routes/student/search';
-import Clubs from './routes/student/clubs/clubs';
-import ClubDetails from './routes/student/clubs/clubDetails';
+import StudentNotification from './routes/student/notifications';
+import StudentSearch from './routes/student/search';
+import StudentClubs from './routes/student/clubs/clubs';
+import StudentClubDetails from './routes/student/clubs/clubDetails';
 import StudentProfile from './routes/student/profile';
 
 import SidebarFac from './components/navbar/sidebarFac';
@@ -23,6 +23,12 @@ import FacultyFeed from './routes/faculty/feed';
 import FacultyNotification from './routes/faculty/notifications';
 import FacultySearch from './routes/faculty/search';
 import FacultyClass from './routes/faculty/class';
+import FacultyProfile from './routes/faculty/profile';
+
+import SidebarUni from './components/navbar/sidebarUni';
+import UniFeed from './routes/uni/feed';
+import UniSearch from './routes/uni/search';
+import UniProfile from './routes/uni/profile';
  
 function App() {
   return (
@@ -37,19 +43,24 @@ function App() {
         <Route path="/" element={<Navbar/>}>
           <Route path="student" element={<SidebarStud />}>
             <Route path="feed" element={<StudentFeed/>}></Route>
-            <Route path="notif" element={<Notification/>}></Route>
-            <Route path="search" element={<Search/>}></Route>
+            <Route path="notif" element={<StudentNotification/>}></Route>
+            <Route path="search" element={<StudentSearch/>}></Route>
             <Route path="profile" element={<StudentProfile />}></Route>
-            <Route path="clubs" element={<Clubs/>}></Route>
-            <Route path="clubs/club-detail" element={<ClubDetails/>}></Route>
+            <Route path="clubs" element={<StudentClubs/>}></Route>
+            <Route path="clubs/club-detail" element={<StudentClubDetails/>}></Route>
           </Route>
           <Route path="faculty" element={<SidebarFac/>}>
             <Route path="feed" element={<FacultyFeed/>}></Route>
             <Route path="notif" element={<FacultyNotification/>}></Route>
             <Route path="search" element={<FacultySearch/>}></Route>
             <Route path="class" element={<FacultyClass/>}></Route>
+            <Route path="profile" element = {<FacultyProfile/>}></Route>
           </Route>
-
+          <Route path="uni" element={<SidebarUni/>}>
+            <Route path="feed" element={<UniFeed/>}></Route>
+            <Route path="search" element={<UniSearch/>}></Route>
+            <Route path="profile" element={<UniProfile/>}></Route>
+          </Route>
         </Route>       
       </Routes>
     </BrowserRouter> 

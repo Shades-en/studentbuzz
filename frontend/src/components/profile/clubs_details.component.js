@@ -1,4 +1,4 @@
-import ClubCard from "../club/clubCard";
+import ClubCard from "../general/groupCard";
 
 const ClubsDetails = () => {
     return ( 
@@ -49,7 +49,7 @@ const ClubsDetails = () => {
                 </div>
             </div>
 
-            <div className="flex flex-wrap mb-3">
+            <div className="flex flex-wrap mb-3 justify-center">
                 <ClubCard/>
                 <ClubCard/>
                 <ClubCard/>

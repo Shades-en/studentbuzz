@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import "./search.css"
-import ClubCard from "../club/clubCard";
+import ClubCard from "../general/groupCard";
 
 const Cards = () => {
 

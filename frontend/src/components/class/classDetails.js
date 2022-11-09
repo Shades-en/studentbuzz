@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ClassProfile from './classProfile';
-import ClubMembers from '../club/clubMembers';
+import ClassMembers from './classMembers';
 import { useState } from 'react';
 import ClassFeed from '../general/groupFeed';
 
@@ -16,7 +16,7 @@ const ClassDetails = () => {
 
                     <div className="bg-white pb-6 flex-1">
                         <div className="container mt-0 mx-auto">
-                            { tab?.members && <ClubMembers/>}
+                            { tab?.members && <ClassMembers/>}
                             { tab?.feed && <ClassFeed/>}
                         </div>
                     </div>

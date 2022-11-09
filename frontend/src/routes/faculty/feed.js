@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Outlet } from "react-router-dom";
 import FacultyList from '../../components/faculty/connectFac';
-import FacultyShowcase from '../../components/student/showcase.component';
+import FacultyShowcase from '../../components/general/showcase.component';
 
 export default function Feed() {
 

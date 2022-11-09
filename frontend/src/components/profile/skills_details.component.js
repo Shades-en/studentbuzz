@@ -37,7 +37,7 @@ const SkillsDetails = () => {
                 </div>
             </div>
 
-            <div className="py-1 text-sm" style={{"marginLeft":"6em"}}>
+            <div className="text-sm" >
                 <ListItemSkills />
                 <ListItemSkills />
                 <ListItemSkills />
