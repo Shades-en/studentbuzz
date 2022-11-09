@@ -18,7 +18,7 @@ const SkillsDetails = () => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5 font-semibold" id="editSkillsModal">Edit Club</h1>
+                            <h1 className="modal-title fs-5 font-semibold" id="editSkillsModal">Add Skill</h1>
                         </div>
                         <div className="modal-body">
                             <form>
@@ -31,7 +31,7 @@ const SkillsDetails = () => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="p-2 rounded-md bg-red-600 text-gray-100" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Submit</button>
+                            <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Add</button>
                         </div>
                     </div>
                 </div>
