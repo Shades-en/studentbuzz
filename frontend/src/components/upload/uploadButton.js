@@ -27,7 +27,7 @@ const UploadButton = (props) => {
             <div className="w-full bg-white md:col-span-5 my-6">
                 <div className="mx-auto h-full flex flex-col justify-center items-center">
                     <div id="images-container"></div>
-                    <div className="flex w-full ">
+                    <div className="flex w-full justify-center">
                         <div id="multi-upload-button" onClick={()=>{
                                 document.getElementById('multi-upload-input').click();
                             }}

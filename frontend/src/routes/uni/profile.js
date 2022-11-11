@@ -7,9 +7,10 @@ import LatestEvents from '../../components/uni/latestEvents';
 import Leaderboard from '../../components/club/leaderboard';
 import { useState } from 'react';
 import LatestNews from '../../components/uni/latestNews';
+import StudentFaculty from '../../components/uni/studentFaculty'
 
 const Profile = () => {
-    var tabs = { "faculties": true , "achievements": false, "latestEvents": false, "latestNews": false};
+    var tabs = { "faculties": true , "achievements": false, "latestEvents": false, "latestNews": false, "student":false};
     const [tab, setTab] = useState(tabs);
 
     return (  
@@ -24,6 +25,7 @@ const Profile = () => {
                             { tab?.achievements && <Achievements/>}
                             { tab?.latestEvents && <LatestEvents/>}
                             { tab?.latestNews && <LatestNews/>}
+                            { tab?.student && <StudentFaculty />}
                         </div>
                     </div>
                 </div>

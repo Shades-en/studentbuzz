@@ -4,22 +4,24 @@ import UploadButton from "../upload/uploadButton";
 const UniProfile = ({setTab}) => {    
 
     var gotoEvents = () => {
-        setTab({ "faculties": false , "achievements": false, "latestEvents": true, "latestNews": false});
+        setTab({ "faculties": false , "achievements": false, "latestEvents": true, "latestNews": false,"student": false});
     }
 
     var gotoFaculties = () => {
-        setTab({ "faculties": true , "achievements": false, "latestEvents": false, "latestNews": false});
+        setTab({ "faculties": true , "achievements": false, "latestEvents": false, "latestNews": false,"student": false});
     }
 
     var gotoAchievements = () => {
-        setTab({ "faculties": false , "achievements": true, "latestEvents": false, "latestNews": false});
+        setTab({ "faculties": false , "achievements": true, "latestEvents": false, "latestNews": false,"student": false});
     }
 
     var gotoNews = () => {
-        setTab({ "faculties": false , "achievements": false, "latestEvents": false, "latestNews": true});
+        setTab({ "faculties": false , "achievements": false, "latestEvents": false, "latestNews": true, "student": false});
     }
 
-
+    var gotoStudents = () => {
+        setTab({ "faculties": false , "achievements": false, "latestEvents": false, "latestNews": false, "student": true});
+    }
 
     return (  
         <>
@@ -71,10 +73,11 @@ const UniProfile = ({setTab}) => {
                     </div>
                 </div>
                 <div className="flex justify-center border-y-2 border-gray-200  py-5">
-                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoFaculties}>Faculties</Link>
-                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoAchievements} >Achievements</Link>
-                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoEvents}>Latest Events</Link>
-                    <Link className="text-gray-600 mx-5 hover:text-indigo-500" onClick={gotoNews}>Latest News</Link>
+                    <Link className="text-gray-600 mx-4 hover:text-indigo-500" onClick={gotoFaculties}>Faculties</Link>
+                    <Link className="text-gray-600 mx-4 hover:text-indigo-500" onClick={gotoAchievements} >Achievements</Link>
+                    <Link className="text-gray-600 mx-4 hover:text-indigo-500" onClick={gotoEvents}>Latest Events</Link>
+                    <Link className="text-gray-600 mx-4 hover:text-indigo-500" onClick={gotoNews}>Latest News</Link>
+                    <Link className="text-gray-600 mx-4 hover:text-indigo-500" onClick={gotoStudents}>Students</Link>
                 </div>
             </div>
 
