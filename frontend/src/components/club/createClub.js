@@ -15,16 +15,16 @@ const CreateClub = () => {
                         </div>
                         <div className="modal-body">
                             <form>
-                            <div className="mb-3">
-                                <label htmlFor="club-name" className="col-form-label">Name</label>
-                                <input type="text" className="form-control" id="club-name"/>
-                            </div>
-                            <div className="mb-3">
-                                <label htmlFor="club-description" className="col-form-label">Description</label>
-                                <textarea className="form-control" id="club-description"></textarea>
-                            </div>
-                            
-                            <UploadButton label = {{"label": "Upload Display Picture"}}/>
+                                <div className="mb-3">
+                                    <label htmlFor="club-name" className="col-form-label">Name</label>
+                                    <input type="text" className="form-control" id="club-name"/>
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="club-description" className="col-form-label">Description</label>
+                                    <textarea className="form-control" id="club-description"></textarea>
+                                </div>
+                                
+                                <UploadButton label = {{"label": "Upload Display Picture"}}/>
 
                             </form>
                         </div>

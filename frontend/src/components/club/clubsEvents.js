@@ -43,22 +43,22 @@ const Events = () => {
                         </div>
                         <div className="modal-body">
                             <form>
-                            <div className="mb-3">
-                                <label htmlFor="event-name" className="col-form-label">Name</label>
-                                <input type="text" className="form-control" id="event-name"/>
-                            </div>
-                            <div className="mb-3">
-                                <label htmlFor="event-description" className="col-form-label">Description</label>
-                                <textarea className="form-control" id="event-description"></textarea>
-                            </div>
-                            <div>
-                                <label htmlFor="event-type" className="col-form-label">Type</label>
-                                <select className="form-select" aria-label="Default select example" id="event-type">
-                                    <option selected>Upcoming</option>
-                                    <option defaultValue="1">Previous</option>
-                                </select>
-                            </div>
-                            <UploadButton label={{label: "Upload Event Poster"}}/>
+                                <div className="mb-3">
+                                    <label htmlFor="event-name" className="col-form-label">Name</label>
+                                    <input type="text" className="form-control" id="event-name"/>
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="event-description" className="col-form-label">Description</label>
+                                    <textarea className="form-control" id="event-description"></textarea>
+                                </div>
+                                <div>
+                                    <label htmlFor="event-type" className="col-form-label">Type</label>
+                                    <select className="form-select" aria-label="Default select example" id="event-type">
+                                        <option selected>Upcoming</option>
+                                        <option defaultValue="1">Previous</option>
+                                    </select>
+                                </div>
+                                <UploadButton label={{label: "Upload Event Poster"}}/>
                             </form>
                         </div>
                         <div className="modal-footer">
