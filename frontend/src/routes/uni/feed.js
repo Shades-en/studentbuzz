@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import UniversityList from '../../components/uni/connectUni';
 import UniShowcase from '../../components/general/showcase.component';
 import { useEffect } from 'react';
-import { useAuthContext } from '../../hooks/useAuthContext';
 
 export default function Feed() {
   const user = localStorage.getItem('user');
