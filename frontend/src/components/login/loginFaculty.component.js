@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded';
 import {useAuthContext} from '../../hooks/useAuthContext';
+import { Navigate } from "react-router-dom";
 
 const Login = (props) => {
     
@@ -11,19 +12,16 @@ const Login = (props) => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
     const[error, setError] = useState('')
-    const {dispatch} = useAuthContext();
+    const {dispatch, user} = useAuthContext();
 
     
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log(email, password)
         var category
         type.uni && (category = 'uni');
         type.faculty && (category = 'faculty');
-        // console.log(formData)
         const body = {email, password, category}
-        // console.log(body)
         const response = await fetch('/api/login-uni', {
             method: 'POST',
             headers: {
@@ -41,12 +39,14 @@ const Login = (props) => {
         if (response.ok) {
             localStorage.setItem('user', JSON.stringify(json))
             dispatch({type: 'LOGIN', payload: json})
+            console.log(user)
         }
 
     }
 
     return (  
         <>
+            {user && <Navigate to="/uni/feed" />}
             <div className="lg:flex">
                 <div className="mt-7 lg:w-1/2 xl:max-w-screen-sm">
                     
