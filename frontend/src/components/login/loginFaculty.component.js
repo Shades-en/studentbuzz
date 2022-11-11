@@ -1,9 +1,13 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 const Login = (props) => {
     
     const type = props.type;
+
+    const[username, setUsername] = useState('')
+    const[password, setPassword] = useState('')
 
     return (  
         <>
@@ -21,7 +25,7 @@ const Login = (props) => {
                             <form>
                                 <div>
                                     <div className="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
-                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="mike@gmail.com"/>
+                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="mike@gmail.com" onChange={(e) => setUsername(e.target.value)} />
                                 </div>
                                 <div className="mt-8">
                                     <div className="flex justify-between items-center">
@@ -29,7 +33,7 @@ const Login = (props) => {
                                             Password
                                         </div>
                                     </div>
-                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password"/>
+                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <div className="mt-10 flex justify-center">
                                     <button className="bg-indigo-500 text-gray-100 p-3 w-10/12 rounded-full tracking-wide
