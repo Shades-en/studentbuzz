@@ -135,38 +135,8 @@ const Signup = (props) => {
 
                                             
                                         </div>
-<<<<<<< HEAD
                                     </form>
-=======
-                                    </div>
-
-                                    <div className="md:col-span-1">
-                                        <label htmlFor="zipcode">Zipcode</label>
-                                        <input type="text" name="zipcode" id="zipcode" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" defaultValue="" onChange={(e) => setZip(e.target.value)} />
-                                    </div>
-
-                                    <UploadButton label = {{"label": "Upload Transcript"}}/>
-
-                                    <div className="md:col-span-5">
-                                        <div className="inline-flex items-center">
-                                        <input type="checkbox" name="billing_same" id="billing_same" className="form-checkbox" />
-                                        <label htmlFor="billing_same" className="ml-2">I confirm that the above details are true to the best of my knowlegde.</label>
-                                        </div>
-                                    </div>
-
-                                
-                            
-                                    <div className="md:col-span-5 text-center">
-                                        <div className="inline-flex items-end">
-                                            <button className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-                                        </div>
-                                    </div>
-
-                                    </div>
->>>>>>> e4910588ebb24aa63c2dd0a5588a9a8c07812f95
                                 </div>
-                                
-                            </form>
                             </div>
                         </div>
                     </div>
