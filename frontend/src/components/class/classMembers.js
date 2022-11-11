@@ -1,6 +1,8 @@
 import ListItem from "../general/list_item.component";
 
 const ClassMembers = () => {
+
+    
     return (  
         <>
             <div className="flex flex-col">
@@ -16,7 +18,7 @@ const ClassMembers = () => {
                                     <div className="main mx-auto flex border w-fit rounded-full overflow-hidden m-4 select-none">
                                         <div className="title py-3 my-auto px-3 bg-indigo-500 text-white text-sm font-semibold mr-3">Year</div>
                                         <label className="flex items-center radio p-2 cursor-pointer mx-2">
-                                            <input className="my-auto transform scale-100" type="radio" name="sfg" />
+                                            <input className="my-auto transform scale-100" type="radio" name="sfg"/>
                                             <div className="title px-2">First</div>
                                         </label>
 

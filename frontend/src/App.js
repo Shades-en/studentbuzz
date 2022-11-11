@@ -29,6 +29,7 @@ import SidebarUni from './components/navbar/sidebarUni';
 import UniFeed from './routes/uni/feed';
 import UniSearch from './routes/uni/search';
 import UniProfile from './routes/uni/profile';
+import SignUpStudent from './components/signup/signUpStudent';
  
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="login-faculty" element={<LoginFaculty/>}></Route>
           <Route path="login-uni" element={<LoginUni/>}></Route>
           <Route path="sign-up-uni" element={<SignupUni/>}></Route>
+          <Route path="sign-up-student" element={<SignUpStudent />}></Route>
         </Route>
         <Route path="/" element={<Navbar/>}>
           <Route path="student" element={<SidebarStud />}>
