@@ -1,6 +1,5 @@
-import { useState } from "react";
 import UploadButton from "../upload/uploadButton";
-
+import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded';
 import { useState } from "react";
 
 const Signup = (props) => {
@@ -16,9 +15,11 @@ const Signup = (props) => {
     const [state, setState] = useState(''); 
     const [selectedFile, setSelectedFile] = useState(null);
     const [confirm, setConfirm] = useState('');
+    const [error, setError] = useState(null);
 
 
     const handleSubmit = async (e) => {
+        console.log(error)
         e.preventDefault()
         console.log('tere')
         const address = [street, city, country, state , zip].join(' ');
@@ -35,14 +36,14 @@ const Signup = (props) => {
                 headers: {},
                 body: formData
             })
-            console.log(response)
-        
-
         
             const json = await response.json()
 
             if (!response.ok) {
-                console.log(json.error)
+                if(json.error.includes('auth/email-already-in-use'))
+                    setError("User with this email already exists");
+                else
+                    setError(json.error);
             }
             if (response.ok) {
                 setUniAdd(true)
@@ -125,7 +126,11 @@ const Signup = (props) => {
                                                 </div>
                                             </div>
 
-                                        
+                                            {/* error */}
+                                            {error && <div className="relative md:col-span-5">
+                                                <span className="text-red-500 flex items-center absolute"><ErrorOutlineRoundedIcon style={{'color':'red', 'marginRight': '0.5em'}} fontSize='5em'/> {error} </span>
+                                            </div>}
+                                            
                                     
                                             <div className="md:col-span-5 text-center">
                                                 <div className="inline-flex items-end">

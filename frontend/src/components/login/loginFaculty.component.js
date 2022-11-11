@@ -1,13 +1,49 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
+import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded';
+import {useAuthContext} from '../../hooks/useAuthContext';
 
 const Login = (props) => {
     
     const type = props.type;
 
-    const[username, setUsername] = useState('')
+    const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
+    const[error, setError] = useState('')
+    const {dispatch} = useAuthContext();
+
+    
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        // console.log(email, password)
+        var category
+        type.uni && (category = 'uni');
+        type.faculty && (category = 'faculty');
+        // console.log(formData)
+        const body = {email, password, category}
+        // console.log(body)
+        const response = await fetch('/api/login-uni', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+    
+        const json = await response.json()
+
+        if (!response.ok) {
+            console.log(json.error)
+            setError(json.error);
+        }
+        if (response.ok) {
+            localStorage.setItem('user', JSON.stringify(json))
+            dispatch({type: 'LOGIN', payload: json})
+        }
+
+    }
 
     return (  
         <>
@@ -22,10 +58,10 @@ const Login = (props) => {
                         {type.uni &&  <h2 className="text-left text-4xl  font-display font-bold lg:text-left xl:text-4xl
                         xl:text-bold">University Login</h2>}
                         <div className="mt-12">
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div>
                                     <div className="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
-                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="mike@gmail.com" onChange={(e) => setUsername(e.target.value)} />
+                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300  border-t-0 border-x-0 focus:outline-none" type="email" placeholder="mike@gmail.com" onChange={(e) => setEmail(e.target.value)} />
                                 </div>
                                 <div className="mt-8">
                                     <div className="flex justify-between items-center">
@@ -33,8 +69,12 @@ const Login = (props) => {
                                             Password
                                         </div>
                                     </div>
-                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
+                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none  border-t-0 border-x-0" type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
                                 </div>
+                                {/* error */}
+                                {error && <div className="relative md:col-span-5">
+                                    <span className="text-red-500 flex items-center absolute"><ErrorOutlineRoundedIcon style={{'color':'red', 'marginRight': '0.5em'}} fontSize='5em'/> {error} </span>
+                                </div>}
                                 <div className="mt-10 flex justify-center">
                                     <button className="bg-indigo-500 text-gray-100 p-3 w-10/12 rounded-full tracking-wide
                                     font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600

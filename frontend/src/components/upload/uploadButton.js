@@ -49,7 +49,7 @@ const UploadButton = (props) => {
                     </div>
                     <input type="file" id="multi-upload-input" className="hidden" required onChange={changeHandler}/>
                     
-                    {error && <div className="text-red-500 text-xs text-left self-baseline font-semibold mt-5"><ErrorOutlineRoundedIcon fontSize='5em'/> {error}</div>}
+                    {error && <div className="text-red-500 text-xs text-left self-baseline font-semibold mt-5"><ErrorOutlineRoundedIcon style={{'color':'red'}} fontSize='5em'/> {error}</div>}
                 </div>
             </div>
         </>

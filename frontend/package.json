@@ -1,5 +1,5 @@
 {
-  "proxy": "http://172.24.3.199:3000",
+  "proxy": "https://7f8c-182-74-196-22.in.ngrok.io",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
