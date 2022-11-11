@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 const LoginUni = () => {
     
     const {user, dispatch} = useAuthContext();
+    
     useEffect(() => {
         user = localStorage.getItem('user');
         dispatch({type: 'LOGIN', payload: user})
