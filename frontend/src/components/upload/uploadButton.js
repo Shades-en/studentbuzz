@@ -2,16 +2,18 @@ import React, {useState} from 'react';
 import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded';
 
 const UploadButton = (props) => {
-    const label = props.label;
+    const label = props.context.label;
+    const selectedFile = props.context.selectedFile;
+    const setSelectedFile = props.context.setSelectedFile
 
-    const [selectedFile, setSelectedFile] = useState(null);
+
 	const [isIsSelected, setIsSelected] = useState(false);
     const [error, setError] = useState(null);
 
     const changeHandler = (event) => {
-        console.log(event.target.value);
         if(event.target.files[0].size < 9000000){
             setSelectedFile(event.target.files[0]);
+            console.log(selectedFile)
             setIsSelected(true);
             setError(null);
         }
@@ -32,7 +34,7 @@ const UploadButton = (props) => {
                                 document.getElementById('multi-upload-input').click();
                             }}
                             className="inline-flex items-center px-4 py-2 bg-indigo-500 border border-indigo-500 rounded-l font-semibold cursor-pointer text-sm text-white tracking-widest hover:bg-gray-500 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition ">
-                            {label.label}
+                            {label}
                         </div>
                         <div className="w-4/12 lg:w-3/12 border border-gray-300 rounded-r-md flex items-center justify-between">
                             <span id="multi-upload-text" className="p-2"> {isIsSelected && selectedFile.name} </span>
