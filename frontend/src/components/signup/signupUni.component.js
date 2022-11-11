@@ -19,9 +19,9 @@ const Signup = (props) => {
 
 
     const handleSubmit = async (e) => {
-        console.log(error)
+        
         e.preventDefault()
-        console.log('tere')
+       
         const address = [street, city, country, state , zip].join(' ');
         const formData = new FormData();
         formData.append('transcript', selectedFile);

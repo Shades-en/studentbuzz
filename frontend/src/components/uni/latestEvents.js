@@ -2,8 +2,10 @@ import EventCard from "../general/eventCard";
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import { Link } from "react-router-dom";
 import UploadButton from "../upload/uploadButton";
+import { useState } from "react";
 
 const LatestEvents = () => {
+    const [selectedFile, setSelectedFile] = useState(null);
     return (  
         <>  
             <div>
@@ -40,7 +42,7 @@ const LatestEvents = () => {
                                 <textarea className="form-control" id="event-description"></textarea>
                             </div>
                            
-                            <UploadButton label={{label: "Upload Event Poster"}}/>
+                            <UploadButton context={{label: "Upload Event Poster", selectedFile, setSelectedFile}}/>
                             </form>
                         </div>
                         <div className="modal-footer">

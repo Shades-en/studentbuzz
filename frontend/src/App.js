@@ -30,8 +30,28 @@ import UniFeed from './routes/uni/feed';
 import UniSearch from './routes/uni/search';
 import UniProfile from './routes/uni/profile';
 import SignUpStudent from './components/signup/signUpStudent';
+
+import {useAuthContext} from './hooks/useAuthContext';
+import {useEffect} from 'react';
  
 function App() {
+  const {dispatch, user} = useAuthContext();
+  useEffect(() => {
+    dispatch({type: 'LOGIN', payload: localStorage.getItem('user')})
+    console.log(user)
+    // if(user){
+    //   fetch('/api/uni/posts', {
+    //     headers: {'Authorization': user},
+    //   })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       console.log(data)
+    //     })
+    //     .catch(err => console.log(err))
+    // }
+    
+  }, [user])  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -42,7 +62,7 @@ function App() {
           <Route path="sign-up-uni" element={<SignupUni/>}></Route>
           <Route path="sign-up-student" element={<SignUpStudent />}></Route>
         </Route>
-        <Route path="/" element={<Navbar/>}>
+        <Route path="/" element={<Navbar />}>
           <Route path="student" element={<SidebarStud />}>
             <Route path="feed" element={<StudentFeed/>}></Route>
             <Route path="notif" element={<StudentNotification/>}></Route>

@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import UploadButton from "../upload/uploadButton";
+import { useState } from "react";
 
 const UniProfile = ({setTab}) => {    
+
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [modal, setModal] = useState(false);
 
     var gotoEvents = () => {
         setTab({ "faculties": false , "achievements": false, "latestEvents": true, "latestNews": false,"student": false});
@@ -69,7 +73,7 @@ const UniProfile = ({setTab}) => {
                         
                     </div>
                     <div className="flex justify-center">
-                        <input type={"button"} value={"Edit Profile"} className="mb-5 mt-1" style={{"padding":"0.6em","border":"0.5px solid #6366f1","borderRadius":"8px"}} data-bs-toggle="modal" data-bs-target="#editClubModal" data-bs-whatever="@getbootstrap"></input>
+                        <input type={"button"} value={"Edit Profile"} className="mb-5 mt-1" style={{"padding":"0.6em","border":"0.5px solid #6366f1","borderRadius":"8px"}} data-bs-toggle="modal" data-bs-target="#editProfileModal" onClick={()=>{setModal(true)}} data-bs-whatever="@getbootstrap"></input>
                     </div>
                 </div>
                 <div className="flex justify-center border-y-2 border-gray-200  py-5">
@@ -81,24 +85,24 @@ const UniProfile = ({setTab}) => {
                 </div>
             </div>
 
-            <div className="modal fade" id="editClubModal" tabIndex="-1" aria-labelledby="editClubLabel" aria-hidden="true">
+            <div className="modal fade" id="editProfileModal" tabIndex="-1" aria-labelledby="editProfileLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5 font-semibold" id="editClubModalLabel">Edit Club</h1>
+                            <h1 className="modal-title fs-5 font-semibold" id="editProfileModalLabel">Edit Club</h1>
                         </div>
                         <div className="modal-body">
                             <form>
                                 <div className="mb-3">
-                                    <label htmlFor="club-name" className="col-form-label">Name</label>
-                                    <input type="text" className="form-control" id="club-name"/>
+                                    <label htmlFor="profile-name" className="col-form-label">Name</label>
+                                    <input type="text" className="form-control" id="profile-name"/>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="club-description" className="col-form-label">Description</label>
-                                    <textarea className="form-control" id="club-description"></textarea>
+                                    <label htmlFor="profile-description" className="col-form-label">Description</label>
+                                    <textarea className="form-control" id="profile-description"></textarea>
                                 </div>
                                 
-                                <UploadButton label = {{"label": "Upload Display Picture"}}/>
+                                {modal && <UploadButton context = {{"label": "Upload Display Picture", selectedFile, setSelectedFile}}/>}
 
                             </form>
                         </div>

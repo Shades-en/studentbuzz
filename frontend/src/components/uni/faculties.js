@@ -1,6 +1,32 @@
 import ListItem from "../general/list_item.component";
+import {useState} from 'react';
 
 const Faculties = () => {
+    const [email, setEmail] = useState('');
+    const [type, setType] = useState('faculty');
+    const [name, setName] = useState('');
+    const [department, setDepartment] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const faculty = {email, type, name, department};
+        console.log(faculty);
+        const response = fetch('/api/uni/add-faculty', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Authorization': user},
+            body: JSON.stringify(faculty)
+
+        });
+        const json = response.json();
+
+        if (response.ok) {
+            console.log(json);
+        }
+        else {
+            console.log(json.error);
+        }
+    }
+
     return (  
         <>
             <div className="flex flex-col">
@@ -12,25 +38,25 @@ const Faculties = () => {
                                 <h1 className="modal-title fs-5 font-semibold" id="addAchieFacultyLabel">Add Faculty</h1>
                             </div>
                             <div className="modal-body">
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <div className="mb-3">
                                         <label htmlFor="faculty-name" className="col-form-label">Name</label>
-                                        <input type="text" className="form-control" id="faculty-name"/>
+                                        <input type="text" className="form-control" id="faculty-name" onChange = {(e) => setName(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="faculty-email" className="col-form-label">Email</label>
-                                        <input type="email" className="form-control" id="faculty-email"/>
+                                        <input type="email" className="form-control" id="faculty-email" onChange={(e) => setEmail(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="faculty-type" className="col-form-label">Type</label>
-                                        <select className="form-select" aria-label="Default select example" id="faculty-type">
+                                        <select className="form-select" aria-label="Default select example" id="faculty-type" onChange={(e) => setType(e.target.value)}>
                                             <option selected value={"faculty"}>Faculty</option>
-                                            <option defaultValue="hod">HOD</option>
+                                            <option value={"hod"}>HOD</option>
                                         </select>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="department" className="col-form-label">Department</label>
-                                        <select className="ml-2 w-56 p-1" name="department" id="department">
+                                        <select className="ml-2 w-56 p-1" name="department" id="department" onChange={(e) => setDepartment(e.target.value)}>
                                             <option value="ISE">Computer Science</option>
                                             <option value="CSE">Information Science</option>
                                             <option value="MECH">Mechanical</option>

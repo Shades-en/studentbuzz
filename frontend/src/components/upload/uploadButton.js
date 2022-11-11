@@ -1,19 +1,28 @@
 import React, {useState} from 'react';
 import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded';
+import { useEffect } from 'react';
 
 const UploadButton = (props) => {
     const label = props.context.label;
     const selectedFile = props.context.selectedFile;
+    // console.log(selectedFile);
     const setSelectedFile = props.context.setSelectedFile
 
 
-	const [isIsSelected, setIsSelected] = useState(false);
+	const [isSelected, setIsSelected] = useState(false);
     const [error, setError] = useState(null);
+
+    useEffect(() => {
+        if(selectedFile) {
+            console.log(isSelected);
+            setError(null);
+            console.log(selectedFile);
+        }
+    }, [selectedFile])
 
     const changeHandler = (event) => {
         if(event.target.files[0].size < 9000000){
             setSelectedFile(event.target.files[0]);
-            console.log(selectedFile)
             setIsSelected(true);
             setError(null);
         }
@@ -24,9 +33,13 @@ const UploadButton = (props) => {
         }
 	};
 
+    useEffect(() => {
+        console.log(selectedFile?.name)
+    }, [selectedFile])
+
     return (
         <>
-            <div className="w-full bg-white md:col-span-5 my-6">
+            <div id="testtttt" className="w-full bg-white md:col-span-5 my-6">
                 <div className="mx-auto h-full flex flex-col justify-center items-center">
                     <div id="images-container"></div>
                     <div className="flex w-full justify-center">
@@ -37,7 +50,7 @@ const UploadButton = (props) => {
                             {label}
                         </div>
                         <div className="w-4/12 lg:w-3/12 border border-gray-300 rounded-r-md flex items-center justify-between">
-                            <span id="multi-upload-text" className="p-2"> {isIsSelected && selectedFile.name} </span>
+                            <span id="multi-upload-text" className="p-2"> {selectedFile?.name} </span>
                             <button id="multi-upload-delete" className="hidden" >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="fill-current text-red-700 w-3 h-3"
                                     viewBox="0 0 320 512">

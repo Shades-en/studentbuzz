@@ -37,7 +37,7 @@ const Login = (props) => {
             setError(json.error);
         }
         if (response.ok) {
-            localStorage.setItem('user', JSON.stringify(json))
+            localStorage.setItem('user', json.uid)
             dispatch({type: 'LOGIN', payload: json})
             console.log(user)
         }

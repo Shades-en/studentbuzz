@@ -1,8 +1,12 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import University from '../general/Member.component';
 
-export default function UniversityList() {
+export default function UniversityList({unis}) {
+    const allUnis = unis;
+   
+    
     return (
         <>
         <div className="max-w-screen-xl mt-5 mx-auto px-6 fixed top-2 right-0">
@@ -14,11 +18,19 @@ export default function UniversityList() {
                         </div>
                         
                         <div className="py-1 text-sm overflow-y-auto" style={{maxHeight: "80vh"}}>
+                            {
+                                allUnis?.map((item, key) => {
+                                    return (
+                                        <University key={key} name={item.name} />
+                                        // <p key={key}>{item.name}</p>
+                                    )
+                                })
+                            }
+                            {/* <University />
                             <University />
                             <University />
                             <University />
-                            <University />
-                            <University />
+                            <University /> */}
                             
                         </div> 
                     </div>
