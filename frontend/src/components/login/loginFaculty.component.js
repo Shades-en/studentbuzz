@@ -22,7 +22,8 @@ const Login = (props) => {
         type.uni && (category = 'uni');
         type.faculty && (category = 'faculty');
         const body = {email, password, category}
-        const response = await fetch('/api/login-uni', {
+        console.log(body)
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/login-uni', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,11 +38,11 @@ const Login = (props) => {
             setError(json.error);
         }
         if (response.ok) {
+            console.log(json.university, json.uid)
             localStorage.setItem('user', json.uid)
-            dispatch({type: 'LOGIN', payload: json})
-            console.log(user)
+            dispatch({type: 'LOGIN', payload: json.university})
+            console.log(user, "inside login")
         }
-
     }
 
     return (  
@@ -61,7 +62,7 @@ const Login = (props) => {
                             <form onSubmit={handleSubmit}>
                                 <div>
                                     <div className="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
-                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300  border-t-0 border-x-0 focus:outline-none" type="email" placeholder="mike@gmail.com" onChange={(e) => setEmail(e.target.value)} />
+                                    <input required className="bg-black/0 w-full text-lg py-2 border-b border-gray-300  border-t-0 border-x-0 focus:outline-none" type="email" placeholder="mike@gmail.com" onChange={(e) => setEmail(e.target.value)} />
                                 </div>
                                 <div className="mt-8">
                                     <div className="flex justify-between items-center">
@@ -69,7 +70,7 @@ const Login = (props) => {
                                             Password
                                         </div>
                                     </div>
-                                    <input className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none  border-t-0 border-x-0" type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
+                                    <input required className="bg-black/0 w-full text-lg py-2 border-b border-gray-300 focus:outline-none  border-t-0 border-x-0" type="password" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 {/* error */}
                                 {error && <div className="relative md:col-span-5">

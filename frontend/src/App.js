@@ -32,25 +32,39 @@ import UniProfile from './routes/uni/profile';
 import SignUpStudent from './components/signup/signUpStudent';
 
 import {useAuthContext} from './hooks/useAuthContext';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
+import ProfileImage from "./assets/images/images_studHome/profile_image.png";
  
 function App() {
+  const  [username, setUsername] = useState(null);
+  const  [userImage, setUserImage] = useState(ProfileImage);
   const {dispatch, user} = useAuthContext();
+  dispatch({type: 'LOGIN', payload: localStorage.getItem('user')});
+ 
+  const fetchUser = async() => {
+    const response = await fetch(`https://studentbuzz.assassinumz.repl.co/api/uni/getUniversity?uid=7PpnLJUg7xZPFu9ttr4C0ZB70LI3`, {
+    headers: {'Authorization': '7PpnLJUg7xZPFu9ttr4C0ZB70LI3'},
+    method: "GET"
+    })
+
+    const json = await response.json();
+
+    if(response.ok){
+      setUsername(json.university.name)
+    }
+    else{
+      console.log(json.error)
+    }
+  }
+ 
   useEffect(() => {
-    dispatch({type: 'LOGIN', payload: localStorage.getItem('user')})
-    console.log(user)
-    // if(user){
-    //   fetch('/api/uni/posts', {
-    //     headers: {'Authorization': user},
-    //   })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       console.log(data)
-    //     })
-    //     .catch(err => console.log(err))
-    // }
-    
-  }, [user])  
+    if(user){
+      fetchUser();
+      console.log(user, "user")
+    }
+  }, 
+  [user]
+  )  
 
   return (
     <BrowserRouter>
@@ -62,7 +76,7 @@ function App() {
           <Route path="sign-up-uni" element={<SignupUni/>}></Route>
           <Route path="sign-up-student" element={<SignUpStudent />}></Route>
         </Route>
-        <Route path="/" element={<Navbar />}>
+        <Route path="/" element={<Navbar username={username} user={userImage}/>}>
           <Route path="student" element={<SidebarStud />}>
             <Route path="feed" element={<StudentFeed/>}></Route>
             <Route path="notif" element={<StudentNotification/>}></Route>

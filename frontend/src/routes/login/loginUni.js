@@ -6,10 +6,6 @@ import {useAuthContext} from '../../hooks/useAuthContext';
 const LoginUni = () => {
     
     const {dispatch, user} = useAuthContext();
-    useEffect(() => {
-        dispatch({type: 'LOGIN', payload: localStorage.getItem('user')})
-    })
-
     return (  
         <> 
             {user? <Navigate to="/uni/feed" /> : <Login type={{uni: true}} />}

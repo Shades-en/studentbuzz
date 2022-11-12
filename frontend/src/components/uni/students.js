@@ -23,7 +23,7 @@ const StudentsComponent = () => {
         formData.append('studentscsv', selectedFile)
         formData.append('uid', currentUni)
         
-        const response = await fetch('/api/uni/add-student-file',{
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/add-student-file',{
             method: "POST",
             headers: {'Authorization': user},
             body: formData,

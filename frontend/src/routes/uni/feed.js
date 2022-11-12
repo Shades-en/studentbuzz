@@ -14,7 +14,7 @@ export default function Feed() {
    
     useEffect(() => {
       const fetchPosts = async () => {
-        const response = await fetch('/api/uni/posts', {
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/posts', {
           headers: {'Authorization': user},
         })
         const json = await response.json()
@@ -25,7 +25,7 @@ export default function Feed() {
       }
 
       const fetchUnis = async () => {
-        const response = await fetch('/api/uni/get-all-unis', {
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/get-all-unis', {
           headers: {'Authorization': user},
         })
         const json = await response.json()
@@ -45,8 +45,8 @@ export default function Feed() {
       <>
         {!user && <Navigate to="/login-uni" /> }
         <div className='student_home bg-gray-100 min-h-screen'>
-            <UniShowcase posts = {posts}/>
-            <UniversityList unis = {unis}/>
+            { posts && <UniShowcase posts = {posts}/>}
+            { unis && <UniversityList unis = {unis}/>}
         </div>
         <Outlet />
       </>

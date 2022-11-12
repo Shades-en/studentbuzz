@@ -8,44 +8,11 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEffect, useState } from "react";
 
 
-const Navbar = () => {
-    const {dispatch, user} = useAuthContext();
-    // console.log(user, "inside nav")
-    const  [username, setUsername] = useState(null);
-    const [userImage, setUserImage] = useState(ProfileImage);
-
-    useEffect(() => {
-        const getUser = async () => {
-        const res = await fetch('/api/student/uni/getUni', {
-            headers: {'Authorization': user},
-        })
-        const data = await res.json();
-        if(res.ok){
-            console.log(data, "inside nav3")
-            // setUsername(data.uni.name);
-            // setUserImage(data.uni.image);
-        }
-        else{
-            console.log("error")
-        }
-      }
-        if(user){
-            console.log(user, "inside nav2")
-            getUser();
-        }
-        // console.log(user, "inside nav3")
-    }, [])
-    
-    // useEffect(async() => {
-    //   // const response = await fetch(`/api/uni/getuni/?uid=${user}`)
-    //   // const json = await response.json()
-    //   // if(response.ok) {
-    //   //   console.log(json)
-    //   // }
-    //   // else {
-    //   //   console.log(json.error)
-    //   // }
-    // }, [])
+const Navbar = (props) => {
+  const {user, dispatch} = useAuthContext();
+  useEffect(() => {
+    console.log(user, "user")
+  }, [])
 
     return (  
         <>
@@ -62,7 +29,7 @@ const Navbar = () => {
                   <div><img src={ProfileImage} className="w-8 rounded-full border-slate-700" alt="" /></div>
                   <div className="dropdown text-black">
                     <button className="btn text-black dropdown-toggle hover:bg-white border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                      Owais Iqbal
+                      {props.username}
                     </button>
                     <ul className="dropdown-menu">
                       <li><Link className="dropdown-item" to="uni/profile">Profile</Link></li>

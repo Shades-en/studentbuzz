@@ -31,7 +31,7 @@ const Signup = (props) => {
         formData.append('address', address);
         formData.append('confirm', confirm);
 
-        const response = await fetch('/api/create-uni', {
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/create-uni', {
                 method: 'POST',
                 headers: {},
                 body: formData

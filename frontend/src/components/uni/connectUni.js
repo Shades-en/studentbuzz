@@ -21,8 +21,7 @@ export default function UniversityList({unis}) {
                             {
                                 allUnis?.map((item, key) => {
                                     return (
-                                        <University key={key} name={item.name} />
-                                        // <p key={key}>{item.name}</p>
+                                        <University key={key} name={item.name} studentCount = {item.students.length} />
                                     )
                                 })
                             }

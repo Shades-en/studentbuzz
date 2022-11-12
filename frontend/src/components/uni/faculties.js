@@ -1,30 +1,33 @@
 import ListItem from "../general/list_item.component";
 import {useState} from 'react';
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Faculties = () => {
     const [email, setEmail] = useState('');
     const [type, setType] = useState('faculty');
     const [name, setName] = useState('');
     const [department, setDepartment] = useState('');
+    const {user} = useAuthContext();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const faculty = {email, type, name, department};
-        console.log(faculty);
-        const response = fetch('/api/uni/add-faculty', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Authorization': user},
-            body: JSON.stringify(faculty)
+        
+        // const faculty = {email, type, name, department};
+        // console.log(faculty);
+        // const response = fetch('/api/uni/add-faculty', {
+        //     method: 'POST',
+        //     headers: {'Content-Type': 'application/json', 'Authorization': user},
+        //     body: JSON.stringify(faculty)
 
-        });
-        const json = response.json();
+        // });
+        // const json = response.json();
 
-        if (response.ok) {
-            console.log(json);
-        }
-        else {
-            console.log(json.error);
-        }
+        // if (response.ok) {
+        //     console.log(json);
+        // }
+        // else {
+        //     console.log(json.error);
+        // }
     }
 
     return (  
