@@ -40,7 +40,7 @@ const StudentsComponent = () => {
     return ( 
         <>
         <div className="flex flex-col">
-            <a type="button" href="https://firebasestorage.googleapis.com/v0/b/reva-hack-e99dd.appspot.com/o/Uni.csv?alt=media&token=5a7908c6-8385-4cc2-aa55-3d8d48ce7db4" style={{border: "solid 2px #6366f1"}} className=" mt-5 self-center flex items-center w-60 justify-center hover:text-blue-400 hover:bg-blue-400 h-10 p-2 rounded-md bg-white shadow-md">Download Student Template</a>
+            <a type="button" href="https://firebasestorage.googleapis.com/v0/b/reva-hack-e99dd.appspot.com/o/university_students.csv?alt=media&token=bdfc7c31-5ca9-48ad-b0ca-828b87949e20" style={{border: "solid 2px #6366f1"}} className=" mt-5 self-center flex items-center w-60 justify-center hover:text-blue-400 hover:bg-blue-400 h-10 p-2 rounded-md bg-white shadow-md">Download Student Template</a>
             <form onSubmit={handleSubmit}>
                 {upload && <div className="mt-5 self-center flex flex-col items-center justify-center w-full">
                     <UploadButton context = {{"label": "Upload Excel", selectedFile, setSelectedFile}}/>  
