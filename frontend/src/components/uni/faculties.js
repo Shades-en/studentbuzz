@@ -9,25 +9,28 @@ const Faculties = () => {
     const [department, setDepartment] = useState('');
     const {user} = useAuthContext();
 
-    const handleSubmit = (e) => {
+    const [uniId, setUniId] = useState(localStorage.getItem('user'))
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        const faculty = {email, type, name, department, university:uniId};
         
-        // const faculty = {email, type, name, department};
-        // console.log(faculty);
-        // const response = fetch('/api/uni/add-faculty', {
-        //     method: 'POST',
-        //     headers: {'Content-Type': 'application/json', 'Authorization': user},
-        //     body: JSON.stringify(faculty)
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/create-faculty', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Authorization': user},
+            body: JSON.stringify(faculty)
 
-        // });
-        // const json = response.json();
+        });
+        const json = response.json();
 
-        // if (response.ok) {
-        //     console.log(json);
-        // }
-        // else {
-        //     console.log(json.error);
-        // }
+        if (response.ok) {
+            setName('')
+            setEmail('')
+            
+        }
+        else {
+            console.log(json.error);
+        }
     }
 
     return (  
@@ -41,14 +44,14 @@ const Faculties = () => {
                                 <h1 className="modal-title fs-5 font-semibold" id="addAchieFacultyLabel">Add Faculty</h1>
                             </div>
                             <div className="modal-body">
-                                <form onSubmit={handleSubmit}>
+                                <form>
                                     <div className="mb-3">
                                         <label htmlFor="faculty-name" className="col-form-label">Name</label>
-                                        <input type="text" className="form-control" id="faculty-name" onChange = {(e) => setName(e.target.value)}/>
+                                        <input value={name} type="text" className="form-control" id="faculty-name" onChange = {(e) => setName(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="faculty-email" className="col-form-label">Email</label>
-                                        <input type="email" className="form-control" id="faculty-email" onChange={(e) => setEmail(e.target.value)}/>
+                                        <input value={email} type="email" className="form-control" id="faculty-email" onChange={(e) => setEmail(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="faculty-type" className="col-form-label">Type</label>
@@ -60,16 +63,18 @@ const Faculties = () => {
                                     <div className="mb-3">
                                         <label htmlFor="department" className="col-form-label">Department</label>
                                         <select className="ml-2 w-56 p-1" name="department" id="department" onChange={(e) => setDepartment(e.target.value)}>
-                                            <option value="ISE">Computer Science</option>
-                                            <option value="CSE">Information Science</option>
-                                            <option value="MECH">Mechanical</option>
+                                            <option value="ISE">ISE</option>
+                                            <option value="CSE">CSE</option>
+                                            <option value="MEC">MEC</option>
+                                            <option value="ECE">ECE</option>
+                                            <option value="EEE">EEE</option>
                                         </select>
                                     </div>
                                 </form>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="p-2 rounded-md bg-red-600 text-gray-100" data-bs-dismiss="modal">Close</button>
-                                <button type="button" className="p-2 rounded-md bg-indigo-600 text-gray-100">Add</button>
+                                <input onClick={handleSubmit} type="submit" className="p-2 rounded-md bg-indigo-600 text-gray-100" value="Add"></input>
                             </div>
                         </div>
                     </div>

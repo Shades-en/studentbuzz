@@ -39,11 +39,13 @@ function App() {
   const  [username, setUsername] = useState(null);
   const  [userImage, setUserImage] = useState(ProfileImage);
   const {dispatch, user} = useAuthContext();
+  const [currentUser, setCurrentUser] = useState(localStorage.getItem('user'))
   dispatch({type: 'LOGIN', payload: localStorage.getItem('user')});
  
   const fetchUser = async() => {
-    const response = await fetch(`https://studentbuzz.assassinumz.repl.co/api/uni/getUniversity?uid=7PpnLJUg7xZPFu9ttr4C0ZB70LI3`, {
-    headers: {'Authorization': '7PpnLJUg7xZPFu9ttr4C0ZB70LI3'},
+
+    const response = await fetch(`https://studentbuzz.assassinumz.repl.co/api/uni/getUniversity?uid=${currentUser}`, {
+    headers: {'Authorization': currentUser},
     method: "GET"
     })
 

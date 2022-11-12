@@ -29,7 +29,7 @@ const Navbar = (props) => {
                   <div><img src={ProfileImage} className="w-8 rounded-full border-slate-700" alt="" /></div>
                   <div className="dropdown text-black">
                     <button className="btn text-black dropdown-toggle hover:bg-white border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                      {props.username}
+                      {props.username || 'My Profile'}
                     </button>
                     <ul className="dropdown-menu">
                       <li><Link className="dropdown-item" to="uni/profile">Profile</Link></li>
