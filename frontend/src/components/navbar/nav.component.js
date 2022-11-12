@@ -9,9 +9,21 @@ import { useEffect, useState } from "react";
 
 
 const Navbar = (props) => {
-  const {user, dispatch} = useAuthContext();
+  const [user, setUser] = useState(localStorage.getItem('user'))
+  const [typeOf, setTypeOf] = useState()
+
+
+  const getTypeOf = async () => {
+    let res = await fetch(`https://studentbuzz.assassinumz.repl.co/api/findType?uid=${user}`, {
+      method:'GET'
+    })
+
+    let json = await res.json()
+    setTypeOf(json)
+    console.log(json)
+  }
   useEffect(() => {
-    console.log(user, "user")
+    getTypeOf()
   }, [])
 
     return (  
@@ -29,10 +41,21 @@ const Navbar = (props) => {
                   <div><img src={ProfileImage} className="w-8 rounded-full border-slate-700" alt="" /></div>
                   <div className="dropdown text-black">
                     <button className="btn text-black dropdown-toggle hover:bg-white border-none" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                      {props.username || 'My Profile'}
+                      {typeOf?.name || 'My Profile'}
                     </button>
                     <ul className="dropdown-menu">
-                      <li><Link className="dropdown-item" to="uni/profile">Profile</Link></li>
+                      <li>
+                        {
+                          typeOf?.uni && <Link className="dropdown-item" to="uni/profile">Profile</Link>
+                        }
+                        {
+                          typeOf?.faculty && <Link className="dropdown-item" to="faculty/profile">Profile</Link>
+                        }
+                        {
+                          typeOf?.student && <Link className="dropdown-item" to="student/profile">Profile</Link>
+                        }
+                        
+                      </li>
                       <li><Link className="dropdown-item" href="#">Settings</Link></li>
                       <li><Link className="dropdown-item" href="#">Sign Out</Link></li>
                     </ul>

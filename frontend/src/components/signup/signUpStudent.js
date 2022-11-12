@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const SignUpStudent = () => {
 
@@ -7,7 +7,53 @@ const SignUpStudent = () => {
     const [email, setEmail] = useState('')
     const [uni, setUni] = useState('')
     const [departmemt, setDepartment] = useState('')
+    const [password, setPassword] = useState('')
+    const [allUnis, setAllUnis] = useState([])
+    const[error,setError] =  useState(null)
 
+    const getAllUnivs = async () => {
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/get-all-unis',
+        {
+            method: 'GET',
+            headers:{},
+
+        })
+        let data = await response.json()
+        setAllUnis(data?.uni)
+        setUni(data?.uni[0].id)      
+    }
+
+    useEffect(() => {
+        getAllUnivs()
+    }, [])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        var myObj = {
+            'email':email,
+            'password':password,
+            'univeristy': uni,
+            'name':name,
+            'department':departmemt
+        }
+
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/create-student', {
+            method: 'POST',
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify(myObj)
+    })
+    
+    const json = await response.json()
+
+    if(!response.ok){
+        if(json.error.includes('auth/email-already-in-use'))
+            setError("User with this email already exists")
+        else
+            setError(json.error)
+    }
+}
+    
     return ( 
     <>
         <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
@@ -23,7 +69,7 @@ const SignUpStudent = () => {
                                     <p>Please fill out all the fields.</p>
                                 </div>
 
-                            <form>
+                            <form onSubmit={handleSubmit}>
                             <div className="lg:col-span-2">
                                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
 
@@ -39,19 +85,24 @@ const SignUpStudent = () => {
 
                                     <div className="md:col-span-5">
                                         <label htmlFor="email">Email</label>
-                                        <input type="text" name="email" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" defaultValue="" placeholder="email@domain.com" onChange={(e) => setEmail(e.target.value)} />
+                                        <input type="email" name="email" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" defaultValue="" placeholder="email@domain.com" onChange={(e) => setEmail(e.target.value)} />
+                                    </div>
+                                    <div className="md:col-span-5">
+                                        <label htmlFor="password">Password</label>
+                                        <input type="password" name="password" id="password" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" defaultValue="" placeholder="email@domain.com" onChange={(e) => setEmail(e.target.value)} />
                                     </div>
                                     
                                     <div className="md:col-span-3">
                                         
-                                        <div class="relative">
+                                        <div className="relative">
                                             <label htmlFor="department" >University</label>
-                                            <select class="border mt-2 border-gray-300 rounded-2 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none" onChange={(e) => setUni(e.target.value)}>
-                                                <option>Select University</option>
-                                                <option>Red</option>
-                                                <option>Blue</option>
-                                                <option>Yellow</option>
-                                                <option>Black</option>
+                                            <select className="border mt-2 border-gray-300 rounded-2 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none" onChange={(e) => setUni(e.target.value)}>
+                                               {
+                                                allUnis.length > 0?
+                                                allUnis.map((item,key) => {return (<option value={item._id} key={key}>{item.name}</option>)})
+                                                :
+                                                <option>No Unis</option>
+                                            } 
                                                 
                                             </select>
                                         </div>
@@ -59,8 +110,18 @@ const SignUpStudent = () => {
 
                                     <div className="md:col-span-3">
                                         <label htmlFor="department">Department</label>
-                                        <input type="text" name="department" id="department" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" defaultValue="" placeholder="" onChange={(e) => setDepartment(e.target.value)} />
+                                        <select className="border mt-2 border-gray-300 rounded-2 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none" onChange={(e) => setUni(e.target.value)}>
+                                            
+                                            <option>CSE</option>
+                                            <option>ISE</option>
+                                            <option>MEC</option>
+                                            <option>EEE</option>
+                                            <option>ECE</option>
+                                            
+                                        </select>
                                     </div>
+                                    {error && <div className="relative md:col-span-5">
+                                    </div>}
 
                                     <div className="md:col-span-5 text-center">
                                         <div className="inline-flex items-end">

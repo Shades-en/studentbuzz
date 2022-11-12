@@ -22,8 +22,15 @@ const Login = (props) => {
         type.uni && (category = 'uni');
         type.faculty && (category = 'faculty');
         const body = {email, password, category}
-        console.log(body)
-        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/login-uni', {
+
+        var endpoint
+        if(type.uni) {
+            endpoint = "https://studentbuzz.assassinumz.repl.co/api/login-uni"
+        }
+        else {
+            endpoint = "https://studentbuzz.assassinumz.repl.co/api/login-fac"
+        }
+        const response = await fetch(endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,22 +39,24 @@ const Login = (props) => {
         })
     
         const json = await response.json()
+        console.log(json, "login fac")
 
         if (!response.ok) {
-            console.log(json.error)
+            
             setError(json.error);
         }
         if (response.ok) {
-            console.log(json.university, json.uid)
+            
             localStorage.setItem('user', json.uid)
-            dispatch({type: 'LOGIN', payload: json.university})
-            console.log(user, "inside login")
+            dispatch({type: 'LOGIN', payload: json.data})
+            
         }
     }
 
     return (  
         <>
-            {user && <Navigate to="/uni/feed" />}
+            {user ? (type.uni ? <Navigate to="/uni/feed" /> : <Navigate to="/faculty/feed" />) : null
+            }
             <div className="lg:flex">
                 <div className="mt-7 lg:w-1/2 xl:max-w-screen-sm">
                     

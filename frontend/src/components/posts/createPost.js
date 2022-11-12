@@ -1,7 +1,37 @@
+import {useState, useEffect,    } from 'react'
+import UploadButton from '../upload/uploadButton'
+
 const CreatePost = () => {
+
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [files, setFiles] = useState()
+    const [user, setUser] = useState(localStorage.getItem('user'))
+
+    const [selectedFile, setSelectedFile] = useState()
+
+
+    const createPost = async () => {
+        let formdata = new FormData()
+
+        formdata.append('title', title)
+        formdata.append('description', description)
+        formdata.append('banner', selectedFile)
+
+
+        let res = await fetch('https://studentbuzz.assassinumz.repl.co/api/faculty/create-post-faculty', {
+            method:'POST',
+            headers: {'Authorization': user},
+            body: formdata,
+        })
+
+        let json = await res.json()
+        console.log(json)
+    }
+
     return (  
         <div className=" bg-gray-100  flex justify-center sm:py-12">
-            <div className="relative py-3 ">
+            <div className="relative py-3 mr-40">
                 <div className="relative px-4 py-3 bg-white mx-8 md:mx-0 shadow rounded-sm sm:p-10">
                 <div className="max-w-md mx-auto">
                     <div className="flex items-center space-x-5">
@@ -15,19 +45,17 @@ const CreatePost = () => {
                     <div className="py-4 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                         <div className="flex flex-col">
                         <label className="leading-loose">Post Title</label>
-                        <input type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Post title"/>
+                        <input onChange={(e) => {setTitle(e.target.value)}} type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Post title"/>
                         </div>
                         
                         <div className="flex flex-col">
                         <label className="leading-loose">Post Description</label>
-                        <input type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Optional"/>
+                        <input onChange={(e) => {setDescription(e.target.value)}} type="text" className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Optional"/>
                         </div>
                     </div>
+                    <UploadButton context={{label:'Banner', selectedFile, setSelectedFile}} />
                     <div className="pt-4 flex items-center space-x-4">
-                        <button className="flex justify-center items-center w-full text-gray-900 px-2 py-1 rounded-md focus:outline-none">
-                            <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg> Cancel
-                        </button>
-                        <button className="bg-indigo-500 flex justify-center items-center w-full text-white px-2 py-1 rounded-md focus:outline-none">Create</button>
+                        <button onClick={createPost} className="bg-indigo-500 flex justify-center items-center w-full text-white px-2 py-1 rounded-md focus:outline-none">Create</button>
                     </div>
                     </div>
                 </div>

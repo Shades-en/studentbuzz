@@ -8,9 +8,10 @@ import { useEffect } from 'react';
 import { Navigate } from "react-router-dom";
 
 export default function Feed() {
-    const {user, dispatch} = useAuthContext();
+    
     const [posts, setPosts] = useState([]); 
     const [unis, setUnis] = useState([]);
+    const [user, setUser] = useState(localStorage.getItem('user'))
    
     useEffect(() => {
       const fetchPosts = async () => {

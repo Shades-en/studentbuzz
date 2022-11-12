@@ -40,33 +40,32 @@ function App() {
   const  [userImage, setUserImage] = useState(ProfileImage);
   const {dispatch, user} = useAuthContext();
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('user'))
-  dispatch({type: 'LOGIN', payload: localStorage.getItem('user')});
+  // dispatch({type: 'LOGIN', payload: localStorage.getItem('user')});
  
-  const fetchUser = async() => {
+  // const fetchUser = async() => {
 
-    const response = await fetch(`https://studentbuzz.assassinumz.repl.co/api/uni/getUniversity?uid=${currentUser}`, {
-    headers: {'Authorization': currentUser},
-    method: "GET"
-    })
+  //   const response = await fetch(`https://studentbuzz.assassinumz.repl.co/api/uni/getUniversity?uid=${currentUser}`, {
+  //   headers: {'Authorization': currentUser},
+  //   method: "GET"
+  //   })
 
-    const json = await response.json();
+  //   const json = await response.json();
 
-    if(response.ok){
-      setUsername(json.university.name)
-    }
-    else{
-      console.log(json.error)
-    }
-  }
+  //   if(response.ok){
+  //     setUsername(json.university.name)
+  //   }
+  //   else{
+  //     console.log(json.error)
+  //   }
+  // }
  
-  useEffect(() => {
-    if(user){
-      fetchUser();
-      console.log(user, "user")
-    }
-  }, 
-  [user]
-  )  
+  // useEffect(() => {
+  //   if(currentUser){
+  //     console.log(currentUser, "c user")
+  //   }
+  // }, 
+  // [currentUser]
+  // )  
 
   return (
     <BrowserRouter>

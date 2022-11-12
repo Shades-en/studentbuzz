@@ -6,7 +6,7 @@ const Faculties = () => {
     const [email, setEmail] = useState('');
     const [type, setType] = useState('faculty');
     const [name, setName] = useState('');
-    const [department, setDepartment] = useState('');
+    const [department, setDepartment] = useState('ISE');
     const {user} = useAuthContext();
 
     const [uniId, setUniId] = useState(localStorage.getItem('user'))
