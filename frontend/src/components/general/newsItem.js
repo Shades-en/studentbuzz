@@ -10,7 +10,7 @@ const NewsItem = () => {
                     
                     <div className="mt-3">
                         <h4 className="text-base font-semibold leading-tight text-gray-900">Reva Hack Runner up</h4>
-                        <p className="text-sm mt-2 text-gray-600">Built a budget file converter with chhapri backend</p>
+                        <p className="text-sm mt-2 text-gray-600">Built a file converter</p>
                     </div>
                 </div>
                 <div>

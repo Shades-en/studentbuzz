@@ -1,26 +1,29 @@
 import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 const SignUpStudent = () => {
 
     const [USN, setUSN] = useState('')
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [uni, setUni] = useState('')
-    const [departmemt, setDepartment] = useState('')
+    const [uni, setUni] = useState('636f92afaf142401e6322afb')
+    const [departmemt, setDepartment] = useState('CSE')
     const [password, setPassword] = useState('')
     const [allUnis, setAllUnis] = useState([])
     const[error,setError] =  useState(null)
+    const [success, setSuccess] = useState(false)
 
     const getAllUnivs = async () => {
-        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/get-all-unis',
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/get-all-unis',
         {
             method: 'GET',
             headers:{},
 
         })
         let data = await response.json()
+        console.log(data)
         setAllUnis(data?.uni)
-        setUni(data?.uni[0].id)      
+        setUni(data?.uni[0].uuid)      
     }
 
     useEffect(() => {
@@ -33,7 +36,7 @@ const SignUpStudent = () => {
         var myObj = {
             'email':email,
             'password':password,
-            'univeristy': uni,
+            'university': uni,
             'name':name,
             'department':departmemt
         }
@@ -52,10 +55,14 @@ const SignUpStudent = () => {
         else
             setError(json.error)
     }
+    else {
+        setSuccess(true)
+    }
 }
     
     return ( 
     <>
+        {success ? <Navigate to="/" /> : null}
         <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
                 <div className=" mt-12 max-w-screen-lg mx-auto">
                     <div>
@@ -80,7 +87,7 @@ const SignUpStudent = () => {
 
                                     <div className="md:col-span-5">
                                         <label htmlFor="name">Name</label>
-                                        <input type="text" name="name" id="name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" defaultValue="" placeholder="email@domain.com" onChange={(e) => setName(e.target.value)} />
+                                        <input type="text" name="name" id="name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" defaultValue="" placeholder="John" onChange={(e) => setName(e.target.value)} />
                                     </div>
 
                                     <div className="md:col-span-5">
@@ -89,7 +96,7 @@ const SignUpStudent = () => {
                                     </div>
                                     <div className="md:col-span-5">
                                         <label htmlFor="password">Password</label>
-                                        <input type="password" name="password" id="password" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" defaultValue="" placeholder="email@domain.com" onChange={(e) => setEmail(e.target.value)} />
+                                        <input type="password" name="password" id="password" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" defaultValue="" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
                                     </div>
                                     
                                     <div className="md:col-span-3">
@@ -98,8 +105,8 @@ const SignUpStudent = () => {
                                             <label htmlFor="department" >University</label>
                                             <select className="border mt-2 border-gray-300 rounded-2 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none" onChange={(e) => setUni(e.target.value)}>
                                                {
-                                                allUnis.length > 0?
-                                                allUnis.map((item,key) => {return (<option value={item._id} key={key}>{item.name}</option>)})
+                                                allUnis?.length > 0?
+                                                allUnis.map((item,key) => {return (<option value={item.uuid} key={key}>{item.name}</option>)})
                                                 :
                                                 <option>No Unis</option>
                                             } 
@@ -110,13 +117,13 @@ const SignUpStudent = () => {
 
                                     <div className="md:col-span-3">
                                         <label htmlFor="department">Department</label>
-                                        <select className="border mt-2 border-gray-300 rounded-2 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none" onChange={(e) => setUni(e.target.value)}>
+                                        <select className="border mt-2 border-gray-300 rounded-2 text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none" onChange={(e) => setDepartment(e.target.value)}>
                                             
-                                            <option>CSE</option>
-                                            <option>ISE</option>
-                                            <option>MEC</option>
-                                            <option>EEE</option>
-                                            <option>ECE</option>
+                                            <option value="CSE">CSE</option>
+                                            <option value="ISE">ISE</option>
+                                            <option value="MEC">MEC</option>
+                                            <option value="EEE">EEE</option>
+                                            <option value="ECE">ECE</option>
                                             
                                         </select>
                                     </div>

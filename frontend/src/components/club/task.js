@@ -13,7 +13,7 @@ const Task = () => {
                         
                         <div className="mt-2 ml-1">
                             <h4 className="text-sm font-semibold leading-tight mb-1 text-gray-900">Reva Hack Runner up</h4>
-                            <p className="text-xs text-gray-600 h-32 overflow-x-hidden">Built a budget file converter with chhapri backend, Built a budget file converter with chhapri backend, Built a budget file converter with chhapri backend</p>
+                            <p className="text-xs text-gray-600 h-32 overflow-x-hidden">Built a file converter </p>
                         </div>
                     </div>
                     
