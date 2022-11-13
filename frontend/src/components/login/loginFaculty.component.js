@@ -39,7 +39,7 @@ const Login = (props) => {
         })
     
         const json = await response.json()
-        console.log(json, "login fac")
+        
 
         if (!response.ok) {
             

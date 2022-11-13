@@ -6,6 +6,29 @@ const Login = () => {
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
 
+    const handleSubmit = async (e) => {
+        var data = {
+            email,
+            password
+        }
+        const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/login-stu', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+    
+        const json = await response.json()
+
+        if (response.ok) {
+            
+            localStorage.setItem('user', json.uid)
+
+            
+        }
+    }
+
   return (  
     <>   
       <div className="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
@@ -20,7 +43,7 @@ const Login = () => {
                         <p>Welcome Back</p>
                     </div>
                     <div>
-                        <form>
+                        <div>
                             <div className="flex -mx-3">
                                 <div className="w-full px-3 mb-5">
                                     <label  className="text-xs font-semibold px-1">Email</label>
@@ -41,10 +64,10 @@ const Login = () => {
                             </div>
                             <div className="flex -mx-3">
                                 <div className="w-full px-3 mb-5">
-                                    <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">LOGIN</button>
+                                    <button onClick={handleSubmit} className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">LOGIN</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                         
                         <div className="mt-4 flex w-full justify-around">
                             <Link to="/login-uni" className="cursor-pointer text-indigo-600 hover:underline ">University Login</Link>
