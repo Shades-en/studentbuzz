@@ -2,6 +2,7 @@ import Post from "../posts/post";
 import {useEffect, useState} from 'react'
 
 const Showcase = (props) => {
+    // console.log(props)
     
     return (  
         <>

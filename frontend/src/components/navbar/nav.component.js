@@ -6,7 +6,7 @@ import ProfileImage from "../../assets/images/images_studHome/profile_image.png"
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEffect, useState } from "react";
-
+import { Navigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const [user, setUser] = useState(localStorage.getItem('user'))
@@ -20,14 +20,20 @@ const Navbar = (props) => {
 
     let json = await res.json()
     setTypeOf(json)
-    console.log(json)
   }
+
+  const handleSignOut = () => {
+    localStorage.removeItem('user')
+    window.location.reload()
+  }
+
   useEffect(() => {
     getTypeOf()
   }, [])
 
     return (  
         <>
+          {!localStorage.getItem('user') &&  <Navigate to="/" />}
             <NavbarContainer>
               <NavbarLogo to='/' className=" flex justify-around items-center w-52">
                   <SchoolIcon fontSize="large" />
@@ -57,7 +63,7 @@ const Navbar = (props) => {
                         
                       </li>
                       <li><Link className="dropdown-item" href="#">Settings</Link></li>
-                      <li><Link className="dropdown-item" href="#">Sign Out</Link></li>
+                      <li><Link className="dropdown-item" onClick={handleSignOut}>Sign Out</Link></li>
                     </ul>
                   </div>
 

@@ -16,6 +16,23 @@ const StudentsComponent = () => {
     const [upload, setUpload] = useState(true)
     const [selectedFile, setSelectedFile] = useState(null);
 
+    const [student, setStudent] = useState()
+
+    useEffect(() => {
+        const fetchStudents = async () => {
+            const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/get-all-students', {
+                headers: {'Authorization': currentUni},
+            })
+            const json = await response.json()
+
+            if (response.ok) {
+                console.log(json)
+                setStudents(json.student)
+            }
+        }
+        fetchStudents()
+    })
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()

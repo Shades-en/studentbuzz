@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import FacultyShowcase from '../../components/general/showcase.component';
 import UniversityList from '../../components/uni/connectUni';
 import CreatePost from '../../components/posts/createPost';
+import { Navigate } from "react-router-dom";
 
 export default function Feed() {
 
@@ -48,6 +49,7 @@ export default function Feed() {
 
   return (
     <>
+    {!user && <Navigate to="/login-faculty" /> }
     <CreatePost />
     <div className='student_home bg-gray-100 min-h-screen'>
     {postsFac && <FacultyShowcase postsFac = {postsFac} />} 

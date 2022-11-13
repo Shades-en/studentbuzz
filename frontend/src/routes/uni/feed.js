@@ -9,11 +9,12 @@ import { Navigate } from "react-router-dom";
 
 export default function Feed() {
     
-    const [posts, setPosts] = useState([]); 
+    const [postsFac, setPostsFac] = useState()
     const [unis, setUnis] = useState([]);
     const [user, setUser] = useState(localStorage.getItem('user'))
    
     useEffect(() => {
+      console.log(user)
       const fetchPosts = async () => {
         const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/posts', {
           headers: {'Authorization': user},
@@ -21,7 +22,7 @@ export default function Feed() {
         const json = await response.json()
 
         if (response.ok) {
-          setPosts(json)
+          setPostsFac(json.posts)
         }
       }
 
@@ -46,7 +47,7 @@ export default function Feed() {
       <>
         {!user && <Navigate to="/login-uni" /> }
         <div className='student_home bg-gray-100 min-h-screen'>
-            { posts && <UniShowcase posts = {posts}/>}
+            { postsFac && <UniShowcase postsFac = {postsFac}/>}
             { unis && <UniversityList unis = {unis}/>}
         </div>
         <Outlet />

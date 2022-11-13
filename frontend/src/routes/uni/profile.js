@@ -16,7 +16,7 @@ const Profile = () => {
     const [uniProfile, setUniProfile] = useState()
 
     const fetchUser = async () => {
-        const response = await fetch(`https://studentbuzz.assassinumz.repl.co/api/uni/getUniversity?uid=${userUid}`, {
+        const response = await fetch(`https://studentbuzz.assassinumz.repl.co/api/uni/getUniversity`, {
         headers: {'Authorization': userUid},
         method: "GET"
         })
@@ -24,7 +24,8 @@ const Profile = () => {
         const json = await response.json();
     
         if(response.ok){
-            setUniProfile(json.university)
+            setUniProfile(json)
+            console.log(json)
         }
         else{
           console.log(json.error)
@@ -34,11 +35,6 @@ const Profile = () => {
     useEffect(() => {
         fetchUser()
     }, [])
-
-    useEffect(() => {
-        
-        console.log(uniProfile, 'uniiii san')
-    }, [uniProfile])
 
     return (  
         <>

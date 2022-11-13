@@ -1,5 +1,5 @@
 import ListItem from "../general/list_item.component";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Faculties = () => {
@@ -7,13 +7,30 @@ const Faculties = () => {
     const [type, setType] = useState('faculty');
     const [name, setName] = useState('');
     const [department, setDepartment] = useState('ISE');
-    const {user} = useAuthContext();
+    const [user, setUser] = useState(localStorage.getItem('user'))
 
-    const [uniId, setUniId] = useState(localStorage.getItem('user'))
+    const [faculties, setFaculties] = useState();
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/get-all-fac', {
+                headers: {'Authorization': user},
+            })
+            const json = await response.json()
+
+            if (response.ok) {
+                setFaculties(json.faculties)
+            }
+        }
+        if (user) {
+            fetchUser()
+        }
+    },[])
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const faculty = {email, type, name, department, university:uniId};
+        const faculty = {email, type, name, department, university:user};
         
         const response = await fetch('https://studentbuzz.assassinumz.repl.co/api/uni/create-faculty', {
             method: 'POST',
@@ -79,18 +96,20 @@ const Faculties = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center my-5">
                     <div>
-                        <h4 className="text-2xl uppercase text-center font-semibold my-5"> Information Science </h4>
+                        
+                        {/* <h4 className="text-2xl uppercase text-center font-semibold my-5"> Information Science </h4>
                         <ListItem/>
-                        <br/>
-                        <ListItem/>
-                        <ListItem/>
-                        <ListItem/>
-                        <ListItem/>
-                        <ListItem/>
+                        <br/> */}
+                        {faculties?.map((faculty, key) => {
+                            return (
+                                <ListItem key={key} name={faculty.name} secondary={faculty.department} third={faculty.type} />
+                            )
+                        })}
+                       
                     </div>
-                    <div>
+                    {/* <div>
                         <h4 className="text-2xl uppercase text-center font-semibold my-5"> Computer Science </h4>
                         <ListItem/>
                         <br/>
@@ -109,7 +128,7 @@ const Faculties = () => {
                         <ListItem/>
                         <ListItem/>
                         <ListItem/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
